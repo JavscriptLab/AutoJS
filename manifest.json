@@ -2,12 +2,27 @@
   "manifest_version": 2,
   "name": "AutoJS",
   "version": "1.0",
-   "permissions": ["https://*/*",
+  "background": {
+    "scripts": ["main.js"],
+    "persistent": true
+  },
+  "permissions": ["https://*/*",
     "http://*/*",
-    "tabs"],
+    "tabs","management","debugger","activeTab"],
   "minimum_chrome_version": "23",
-  "content_scripts" : [{
-       "matches": ["<all_urls>"],
-        "js" : ["auto.js"]
-    }]
+  "content_scripts": [
+    {
+      "matches":["<all_urls>"],
+      "all_frames":true,
+      "js":[ "inject.js"]
+    }
+    ////{
+    ////  "matches": [ "https://openproject.fingent.net/*" ],
+    ////  "all_frames": true,
+    ////  "js": [ "openproject.js" ]
+    ////}
+  ],
+  "web_accessible_resources": [
+    "jquery.js","auto.js","openproject.js"
+  ]
 }
