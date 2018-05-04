@@ -13,7 +13,7 @@
   "content_scripts": [
     {
       "matches":["<all_urls>"],
-      "all_frames":true,
+      ////"all_frames":true,
       "js":[ "inject.js"]
     }
     ////{
@@ -23,6 +23,6 @@
     ////}
   ],
   "web_accessible_resources": [
-    "jquery.js","auto.js","openproject.js"
+    "js/*"
   ]
 }

@@ -7,13 +7,15 @@
         {   
             var script=document.createElement('script');
             script.type = 'text/javascript';
+            script.onload=function()
+            {
             if(callback)
             {
-                script.onload=callback;
+                callback();
             }
-            script.src="chrome-extension://cchkipmfgpadgadjmaclbkhkodnljjkf/"+src;
-            var s=document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(script, s);
+            }
+            script.src="chrome-extension://cchkipmfgpadgadjmaclbkhkodnljjkf/js/"+src;
+            document.head.appendChild(script);
         }
     }
     ls("jquery.js", "",
@@ -21,6 +23,8 @@
         {
             ls("auto.js", "");
             ls("openproject.js", "openproject.fingent.net");
+            ls("stackoverflow.js", "stackoverflow");
+            ls("applyjob.js", "");
         });
     
     

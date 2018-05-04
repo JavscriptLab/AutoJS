@@ -1,5 +1,4 @@
-﻿(function ($)
-{
+﻿(function ($){
 localStorage.timetoescapeupdated = "";
 var datetimenow = new Date();
 var starttime = datetimenow;
