@@ -8,12 +8,12 @@
   },
   "permissions": ["https://*/*",
     "http://*/*",
-    "tabs","management","debugger","activeTab"],
+    "tabs","management","debugger","activeTab","storage"],
   "minimum_chrome_version": "23",
   "content_scripts": [
     {
       "matches":["<all_urls>"],
-      ////"all_frames":true,
+      "all_frames":true,
       "js":[ "inject.js"]
     }
     ////{
