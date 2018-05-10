@@ -10,7 +10,7 @@
         cacheappliedlinks = JSON.parse(localStorage.getItem("cacheappliedlinks"));
     }
 
-    $(".description").css("cursor", "pointer").text("apply all");
+    $("#index-hed .description").css("cursor", "pointer").text("apply all");
     $(".listResults.jobs >.listResults > .-job-item").each(function () {
         var th = $(this);
         var link = $(this).find(".job-link").attr("href").split("?")[0];
