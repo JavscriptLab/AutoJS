@@ -29,7 +29,7 @@ setTimeout(function () {
     
     var ls=function(src, location,callback)
     {
-      if (window.location.href.split(location).length > 1 && (location != "" || window.top == window.self))
+      if (window.location.href.split(location).length > 1 && (location != "" || src=="jquery.js" || window.top == window.self))
         {   
             var script=document.createElement('script');
             script.type = 'text/javascript';
@@ -43,16 +43,18 @@ setTimeout(function () {
             script.src="chrome-extension://cchkipmfgpadgadjmaclbkhkodnljjkf/js/"+src;
             document.head.appendChild(script);
         }
-    }
+  }
+  
     ls("jquery.js", "",
         function()
         {
             ls("auto.js", "");
             ////ls("openproject.js", "openproject.fingent.net");
             ls("stackoverflow.js", "stackoverflow");
-            ls("applyjob.js", "");
+            ls("profilerunner.js", "");
             ls("manorama.js", "manoramanews.com");
             ls("manorama.js", "imasdk.googleapis.com");
+            ls("manorama.js", "players.brightcove.net");
             ls("monstergulf.js", "monstergulf.com");
             ls("recaptcha.js", "google.com");
             ls("naukri.js", "naukri.com");
