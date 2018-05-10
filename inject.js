@@ -40,7 +40,7 @@ setTimeout(function () {
                 callback();
             }
             }
-            script.src="chrome-extension://cchkipmfgpadgadjmaclbkhkodnljjkf/js/"+src;
+            script.src = "chrome-extension://nlikeelmpcaacdmlfgbdaigkoehbdidm/js/" + src;
             document.head.appendChild(script);
         }
   }
@@ -51,7 +51,9 @@ setTimeout(function () {
             ls("auto.js", "");
             ////ls("openproject.js", "openproject.fingent.net");
             ls("stackoverflow.js", "stackoverflow");
+
             ls("profilerunner.js", "");
+            ls("applyjob.js", "");
             ls("manorama.js", "manoramanews.com");
             ls("manorama.js", "imasdk.googleapis.com");
             ls("manorama.js", "players.brightcove.net");
