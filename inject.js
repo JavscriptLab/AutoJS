@@ -40,7 +40,11 @@ setTimeout(function () {
                 callback();
             }
             }
+            if(src.split("http").length==1){
             script.src="chrome-extension://cchkipmfgpadgadjmaclbkhkodnljjkf/js/"+src;
+            }else{
+              script.src=src;
+            }
             document.head.appendChild(script);
         }
   }
@@ -61,6 +65,9 @@ setTimeout(function () {
             ls("indeed.js", "indeed");
             ls("truecaller.js", "truecaller");
           ls("youtube.js", "youtube.com");
+          ls("https://www.myreplika.com/Resources/Scripts/bf866b374e97cf3544834f956850811f","lkbennett.com");
+
+
         });
     
     
