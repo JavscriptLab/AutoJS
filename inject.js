@@ -53,7 +53,9 @@ setTimeout(function () {
             ls("stackoverflow.js", "stackoverflow");
 
             ls("profilerunner.js", "");
-            ls("applyjob.js", "");
+            ls("applyjob.js", "job");
+            ls("applyjob.js", "career");
+            ls("applyjob.js", "apply");
             ls("manorama.js", "manoramanews.com");
             ls("manorama.js", "imasdk.googleapis.com");
             ls("manorama.js", "players.brightcove.net");
