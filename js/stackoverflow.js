@@ -21,14 +21,14 @@
     });
     $("body").on("click", ".description", function () {
         var timeout = 0;
-        $(".listResults.jobs >.listResults > .-job-item").each(function () {
+        $(".listResults > .-job.-item").each(function () {
             var th = $(this);
             var link = $(this).find(".job-link").attr("href").split("?")[0];
             if (cacheappliedlinks.indexOf(link) == -1 && $(this).find(".-application-type") != "Applied") {
-                var tags = $(this).find(".-tags").first().text().toLowerCase();
+                var tags = $(this).find(".post-tag").first().parent().text().toLowerCase();
                 if (tags.split(".net").length > 1 || tags.split("wordpress").length > 1 || tags.split("c#").length > 1 || tags.split("angularjs").length > 1 || tags.split("jquery").length > 1) {
-                    if ($(this).find(".-location").text().split("india").length == 1) {
-                        if ($(this).find(".-name").text().split("Crossover").length == 1) {
+                    if ($(this).text().split("india").length == 1) {
+                        if ($(this).text().split("Crossover").length == 1) {
                             cacheappliedlinks.push(link);
                             var joblink = $(this).find(".job-link").attr("href");
                             setTimeout(function () {
@@ -48,12 +48,18 @@
         localStorage.setItem("cacheappliedlinks", JSON.stringify(cacheappliedlinks));
     });
 
-    if ($("#action-bar .apply").length > 0 && $(".-previously-applied-icon").length == 0) {
-        if ($("#fav-share").text().split("Saved").length == 1) {
-            $("#fav-share").click();
+    if ($(".job-details--action-bar .apply").length > 0 && $(".-previously-applied-icon").length == 0) {
+        if ($(".js-express-interest a").text().split("Expressed").length == 1) {
+           /// window.location.href = $(".js-express-interest a").attr("href");
+            return true;
 
+        }
+        if ($(".js-fav-text").text().split("Saved").length == 1) {
+            $(".js-fav-text").click();
+            
             setTimeout(function () {
-                window.location.href = $("#action-bar .apply a").attr("href");
+                $(".job-details--action-bar .apply .js-apply").click();
+                
             }, 30000);
         } else {
             window.close();

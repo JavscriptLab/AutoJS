@@ -15,12 +15,11 @@ var ajspeek = function (key, callback) {
   }
 }
 var ajskoop = function (key, callback) {
-  localStorage.removeItem(key);
-  if(callback)
-  {
-    callback();
-  }
-}
+    localStorage.removeItem(key);
+    if (callback) {
+        callback();
+    }
+};
 (function ($) {
     var validclasses ={};
     validclasses.classes = [];
@@ -139,72 +138,16 @@ var ajskoop = function (key, callback) {
     }
 
     
-    var selectors=getgeneratedselectors($("body").find("input:visible"));
-    console.log(selectors);
+  ////  var selectors=getgeneratedselectors($("body").find("input:visible"));
+   /// console.log(selectors);
 
 
-  function fillbycondition(keys,value)
-  {
-    $.each(keys.split("|"),
-      function(i, v)
-      {
-        var selectors={};
-        selectors["n"]="";
-        selectors["u"]="";
-        selectors["c"]="";
-        selectors["l"]="";
-        $.each(v.split("&"),
-          function(i1, v1)
-          {
-            var capitalize=v1.charAt(0).toUpperCase()+v1.slice(1);
-            var upper=v1.toUpperCase();
-            var lower=v1.toLowerCase();
-            selectors["n"]+="[name*="+v1+"]";
-            selectors["u"]+="[name*="+upper+"]";
-            selectors["c"]+="[name*="+capitalize+"]";
-            selectors["l"]+="[name*="+lower+"]";
-          });
-        var selectorsarray=[];
-        $.each(selectors,
-          function(i2, v2)
-          {
-            selectorsarray.push(v2);
-          });
-
-        $(selectorsarray.join(",")).each(function()
-        {
-          if(!$(this).val())
-          {
-            $(this).val(value);
-          }
-        });
-  });
-    
-  }
+  
   function css(selector, stylevalue) {
     $("head")
       .append("<style class='autostyles' type='text/css'>" + selector + "{ "+stylevalue+ "}</style>");
   }
   
-  fillbycondition("mail", "justnshalom@gmail.com");
-  fillbycondition("phone|mobile", "+919605656508");
-  fillbycondition("first&name", "Justin");
-  fillbycondition("last&name", "Jose");
-  fillbycondition("job&title", "Senior Software Engineer");
-  fillbycondition("linkedin", "https://linkedin.com/in/justnshalom/");
-  fillbycondition("first&name", "Justin");
-  fillbycondition("first&name", "Justin");
-
-  
-  $("#resumator-apply-with-linkedin-wrapper a").click();
-  $("#resumator-address-value").val("Koonammakkel House");
-  $("#resumator-city-value").val("Kottayam");
-  $("#resumator-state-value").val("Kerala");
-  $("#resumator-postal-value").val("685521");
-
-  
-  $("[type=checkbox][name*=accept],[type=checkbox][value*=accept]").prop("checked", "true");
-  $("[type=password]").val("KingLives@11");
   css(".autojsicon", "position: fixed;z-index: 99999999;background-color: #fffdfd;width: 31px;height: 31px;right: 0px;top: 89px;border-radius: 36px;color: black;cursor: pointer;    text-align: center;font-size: 21px;");
   css(".autojs", "display:none;position: fixed;z-index: 99999999999;background-color: #fffdfd;width: 20%;max-width:250px;min-width:150px;height: 100%;overflow-y:scroll;right: 0px;top: 0px;color: black;");
   $("body").append('<div class="autojsicon">A</div><div class="autojs ">' +
