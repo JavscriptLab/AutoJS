@@ -48,22 +48,38 @@
         localStorage.setItem("cacheappliedlinks", JSON.stringify(cacheappliedlinks));
     });
 
-    if ($(".job-details--action-bar .apply").length > 0 && $(".-previously-applied-icon").length == 0) {
-        if ($(".js-express-interest a").text().split("Expressed").length == 1) {
-           /// window.location.href = $(".js-express-interest a").attr("href");
+    if ($(".js-apply-container").length > 0 && $(".-previously-applied-icon").length == 0) {
+        if ($(".js-express-interest a").length == 1) {
+            setTimeout(function () {
+            var s = {
+                fkey: $("script:contains('fkey')").text().split('"fkey":"')[1].split('"')[0],
+                "g-recaptcha-response": true
+            };
+            
+           $.post( $(".js-express-interest a").attr("href"),s,function(){
+                window.location.reload();
+           });
+        }, 20000);
             return true;
 
-        }
+        }else
+       
         if ($(".js-fav-text").text().split("Saved").length == 1) {
-            $(".js-fav-text").click();
-            
             setTimeout(function () {
-                $(".job-details--action-bar .apply .js-apply").click();
+            var s = {
+                fkey: $("script:contains('fkey')").text().split('"fkey":"')[1].split('"')[0],
+            };
+            
+           $.post( $(".js-fav-text").attr("href"),s,function(){
+            setTimeout(function () {
+               window.location.href= $(".js-apply-container .js-apply").attr("href");
                 
-            }, 30000);
+            }, 20000);
+           });
+        }, 20000);
         } else {
             window.close();
-        }
+        }  
     }
     if ($(".-previously-applied-icon").length == 1) {
         window.close();

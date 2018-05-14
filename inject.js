@@ -29,7 +29,14 @@ setTimeout(function () {
     
     var ls=function(src, location,callback)
     {
-      if (window.location.href.split(location).length > 1 && (location != "" || src=="jquery.js" || window.top == window.self))
+      var valid=false;
+      var chances=location.split("|");
+      for(var key in chances){
+if(window.location.href.split(chances[key]).length > 1){
+valid=true;
+}
+      }
+      if (valid && (location != "" || src=="jquery.js" || window.top == window.self))
         {   
             var script=document.createElement('script');
             script.type = 'text/javascript';
@@ -55,22 +62,18 @@ setTimeout(function () {
             ls("auto.js", "");
             ////ls("openproject.js", "openproject.fingent.net");
             ls("stackoverflow.js", "stackoverflow");
-
             ls("profilerunner.js", "");
-            ls("applyjob.js", "job");
-            ls("applyjob.js", "career");
-            ls("applyjob.js", "apply");
-            ls("manorama.js", "manoramanews.com");
-            ls("manorama.js", "imasdk.googleapis.com");
-            ls("manorama.js", "players.brightcove.net");
+            ls("applyjob.js", "job|career|apply|vacancies|vacancy|application");
+            
+            ls("manorama.js", "manoramanews.com|imasdk.googleapis.com|players.brightcove.net");
             ls("monstergulf.js", "monstergulf.com");
             ls("recaptcha.js", "google.com");
-            ls("naukri.js", "naukri.com");
+            ls("naukri.js", "naukri");
             ls("indeed.js", "indeed");
             ls("truecaller.js", "truecaller");
           ls("youtube.js", "youtube.com");
-          ls("https://www.myreplika.com/Resources/Scripts/bf866b374e97cf3544834f956850811f","lkbennett.com");
-
+          // // ls("https://www.myreplika.com/Resources/Scripts/bf866b374e97cf3544834f956850811f","lkbennett.com");
+          ls("others.js", "");
 
         });
     

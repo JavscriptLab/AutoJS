@@ -1,6 +1,13 @@
 (function ($) {
   var injs = function (location, callback) {
-    if (window.location.href.split(location).length > 1 && (location != "" || window.top == window.self))
+    var valid=false;
+    var chances=location.split("|");
+    for(var key in chances){
+if(window.location.href.split(chances[key]).length > 1){
+valid=true;
+}
+    }
+    if (valid && (location != "" || window.top == window.self))
     {
       callback();
     }
@@ -15,7 +22,16 @@
     });
   injs("jobstreet.com.sg",
     function () {
-      $("#apply_button").trigger("click");
+      if(window.delaySubmitForm&&$("#apply-now-link:visible").length>0){
+      delaySubmitForm();
+      $("#apply-now-link").submit();
+    }
+    });
+     injs("reed.co.uk",
+    function () {  
+      setTimeout(function () {
+      $("#applyButtonSide").click();
+      },5000);
     });
   injs("myjobstreet.jobstreet.com.sg",
     function () {
@@ -29,8 +45,6 @@
     $(".js-linkedin-apply").click();
   } else {
     $("#resume_cache [data-toggle='modal']").click();
-
-    debugger;
     setTimeout(function ()
     {
       $(".js-resume-picker").click();
@@ -84,4 +98,40 @@
     $(".otainstall-nothanks-button").trigger("click");
   }
 });
+
+
+injs("job|career|apply|vacancies|vacancy|application",
+function () {
+  ////function for apply any links with apply now title
+var link="";
+var valid=true;
+  $('a[name*=apply],a[title*=apply]').each(function(){
+    if(link!=""){
+      if(link!=$(this).attr("href")){
+valid=false;
+      }
+    }
+    link=$(this).attr("href");
+  })
+  debugger;
+  if(valid&&link!=""&&$("input[type=text]:visible").length==0){
+    window.location.href=link;
+  }
+
+////function for apply any links with linkedin import button
+
+var linkedinselector=$('a[class*=import][class*=linkedin],a:contains("import"):contains("linkedin")');
+if(linkedinselector.length>0&&!sessionStorage.getItem("linkedinimported")){
+
+window.location.href=linkedinselector.attr("href");
+sessionStorage.setItem("linkedinimported",true);
+}
+
+
+});
+
+
+
+
+
 })(myjQuery);

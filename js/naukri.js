@@ -79,7 +79,19 @@
 
   })
 
-
+  var interval = setInterval(function () {
+    
+        setTimeout(function () {
+          if ($("#apply_now:visible:not(.clicked)").length > 0) {
+            debugger;
+            $("#apply_now").addClass("clicked");
+            $("#apply_now").click();
+            clearInterval(interval);
+          }
+        }, 5000);
+    
+    
+      })
 
 
 

@@ -163,30 +163,18 @@
             if (localdominserti == dominserti) {
                 if ($("input,select,textarea").filter(":visible").not("[data-processed-by-auto-js]").length > 0) {
                     $("input,select,textarea").filter(":visible").attr("data-processed-by-auto-js", true);
-                    fillbycondition("mail", "justnshalom@gmail.com");
+                    fillbycondition("Id&Card", "NMZ0092247");
+                    fillbycondition("title", "Mr");
+                    fillbycondition("password", "KingLives@11");
                     fillbycondition("phone|mobile|telefon", "+919605656508");
-
                     fillbycondition("full&Name|Full&name", "Justin Jose");
                     fillbycondition("first&Name|vor&Name|name", "Justin");
                     fillbycondition("last&Name|nach&Name|sur&Name", "Jose");
                     fillbycondition("user&Name|user&name", "justnshalom");
-                    fillbycondition("birth|dob", "1988-06-01");
-                    fillbycondition("title", "Mr");
+                    fillbycondition("birth|dob", "1988-06-01");                    
                     fillbycondition("gender", "Male");
                     fillbycondition("Religion", "Christian");
                     fillbycondition("Marital", "Married");
-
-                    fillbycondition("Passport", "K7226562");
-                    fillbycondition("Passport&Expiry", "02/01/2023");
-                    fillbycondition("Passport>Expiry", "02/01/2023");
-                    fillbycondition("Issue&Date", "03/01/2013");
-                    fillbycondition("Place&Issue", "Cochin");
-                    fillbycondition("Aadhar", "435634958632");
-                    fillbycondition("Pan&Card", "AUSPJ1560G");
-                    fillbycondition("Id&Card", "NMZ0092247");
-
-                    fillbycondition("password", "KingLives@11");
-
 
                     fillbycondition("nationality", "Indian");
                     fillbycondition("Country", "India");
@@ -194,7 +182,7 @@
                     fillbycondition("District", "Kottayam");
                     fillbycondition("location|City", "Kottayam");
                     fillbycondition("strasse|address", "Koonamackel House,  South Pampady PO");
-                    fillbycondition("plz|Pin&Code|Zip&Code", "686521");
+                    fillbycondition("plz|Pin&Code|Zip&Code|Postal&Code", "686521");
 
                     fillbycondition("Current&District", "Ernakulam");
                     fillbycondition("Current&address", `Livra No 14,
@@ -202,7 +190,7 @@ Link Valley,
 Opposite Kusumagiri Hospital,
 Kakkanad`);
 
-                    fillbycondition("Current&Pin&Code|Current&Zip&Code", "682030");
+                    fillbycondition("Current&Pin&Code|Current&Zip&Code|Current&Postal&Code", "682030");
                     fillbycondition("Current&City", "Kochi");
 
                     fillbycondition("linkedin|LinkedIn", "https://linkedin.com/in/justnshalom/");
@@ -221,7 +209,8 @@ Kakkanad`);
                     fillbycondition("Experience", "5");
                     fillbycondition("Qualification", "MCA");
                     fillbycondition("Expected&Salary", "As Per Industrial Standard");
-                    
+                    fillbycondition("current&Employer|Employer", "Fingent Technologies");
+
                     fillbycondition("motivation|cover&Letter|message&Employer", `Dear HR,
 As a young and motivated individual, I am extremely interested to submit an application for the position of Software Engineer in your Company.
 In November 2013, I completed my studies in Master of Computer Applications ( MCA ). This has given me a range of practical capabilities that will meet the needs of this role.
@@ -237,6 +226,19 @@ Thanking you in advance for your time,
 
 Justin Jose
 Mobile.+919605656508`);
+
+
+
+
+fillbycondition("mail", "justnshalom@gmail.com");
+fillbycondition("Passport", "K7226562");
+fillbycondition("Passport&Expiry", "02/01/2023");
+fillbycondition("Passport>Expiry", "02/01/2023");
+fillbycondition("Issue&Date", "03/01/2013");
+fillbycondition("Place&Issue", "Cochin");
+fillbycondition("Aadhar", "435634958632");
+fillbycondition("Pan&Card", "AUSPJ1560G");
+
 
                 }
             }
