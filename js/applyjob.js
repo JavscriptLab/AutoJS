@@ -113,15 +113,16 @@
                     selectorsarray.push(v2);
                 });
               selectorsarray=selectorsarray.sort();
-              $(selectorsarray.join(",")).not("[type=hidden]").filter(":visible").each(function () {
+              var disableitemsselector="[type=hidden],[type=file],[data-value-set-by-auto-js-disabled]";
+              $(selectorsarray.join(",")).not(disableitemsselector).filter("form:visible *,:visible").each(function () {
                   
                   var input = $(this);
                   input.attr("data-processed-by-auto-js", true);
                   if ($(this).prop("tagName").toLowerCase() == "label") {
                       if ($(this).attr("for")) {
                           input = $("#" + $(this).attr("for"));
-                      } else if ($(this).parent().find("input:visible,select:visible,textarea:visible").not("[type=hidden]").length == 1) {
-                          input = $(this).parent().find("input:visible,select:visible,textarea:visible").not("[type=hidden]");
+                      } else if ($(this).parent().find("input:visible,select,textarea").not(disableitemsselector).length == 1) {
+                          input = $(this).parent().find("input:visible,select,textarea").not(disableitemsselector);
                       }
                   }
                   if ($(this).prop("tagName").toLowerCase() == "select") {
@@ -135,13 +136,18 @@
                           }
                       }
                   }
-                  input = input.filter(":visible")
-                  if ((input && !input.val()) || input.attr("data-value-set-by-auto-js")) {
+                  
+                  if ((input &&input.length>0 && !input.val()) || input.attr("data-value-set-by-auto-js")) {
                       if (input.hasClass("hasDatepicker") && input.attr("id") && jQuery("#" + input.attr("id")).datepicker) {
                           input.attr("data-value-set-by-auto-js", "true");
                           jQuery("#" + input.attr("id")).datepicker().datepicker("setDate", new Date(value));
                       } else {
+if((input.attr("type")=="checkbox"||input.attr("type")=="radio")&&input.length==1){
+    input.prop("checked",true);
+}else{
                           input.val(value).attr("data-value-set-by-auto-js", "true").trigger("change");
+}
+
 if(!input.val()){
     input.val(value);
 }
@@ -167,6 +173,27 @@ if(!input.val()){
             if (localdominserti == dominserti) {
                 if ($("input,select,textarea").filter(":visible").not("[data-processed-by-auto-js]").length > 0) {
                     $("input,select,textarea").filter(":visible").attr("data-processed-by-auto-js", true);
+                    var motivationletter=`Dear HR,
+                    As a young and motivated individual, I am extremely interested to submit an application for the position of Software Engineer in your Company.
+                    In November 2013, I completed my studies in Master of Computer Applications ( MCA ). This has given me a range of practical capabilities that will meet the needs of this role.
+                    While completing my MCA, I worked full-time as a Trainee for Hightrax. My responsibilities in this role included providing support for clients and complete their projects in .Net. After that, I worked full-time as a Junior Software Engineer for Caxita and am now a Senior Software Engineer. My responsibilities in this role included developing their Web application projects. This position has given me key employability skills while also allowing me to experience working in a professional and fast-paced work environment.
+                    With regard to my ability to meet the specific requirements of this job:
+                    Fast Learning: Fast Learning and  Implementation.
+                    Programming Logic: Not become stuck in any situation. Have good logic and creative ideas.
+                    Support Others: Support everyone to solve issues and improve knowledge.
+                    My employers have commended me for my high level of interpersonal skills and naturally engaging personality. My motivations include learning new things and the challenge of meeting key targets. My current and previous managers can be contacted to provide more information about my ability to meet the needs of this job.
+                    I understand that you will receive a large number of applications for this role. I do, however, believe that my motivation, commitment and pre-existing skills will allow me to fit into your work environment and immediately start supporting the needs of your organisation.
+                    I would appreciate the opportunity to meet with you to discuss my application at an interview. I have attached a copy of my resume for your consideration. I can be contacted at all times on the details provided above.
+                    Thanking you in advance for your time,
+                    
+                    Justin Jose
+                    Mobile.+919605656508`;
+var currentaddress=`Livra No 14,
+Link Valley,
+Opposite Kusumagiri Hospital,
+Kakkanad`;
+var whyyouunique=`I am a simple person who loves to write simple codes that do major tasks.  I can learn fast and work smart. I'll be an asset to the company.  `;
+
                     fillbycondition("Id&Card", "NMZ0092247");
                     fillbycondition("title", "Mr");
                     fillbycondition("password", "KingLives@11");
@@ -178,7 +205,7 @@ if(!input.val()){
                     fillbycondition("birth|dob", "1988-06-01");                    
                     fillbycondition("gender", "Male");
                     fillbycondition("Religion", "Christian");
-                    fillbycondition("Marital", "Married");
+                    fillbycondition("Marital|Married", "Married");
 
                     fillbycondition("nationality", "Indian");
                     fillbycondition("Country", "India");
@@ -189,10 +216,7 @@ if(!input.val()){
                     fillbycondition("plz|Pin&Code|Zip&Code|Postal&Code", "686521");
 
                     fillbycondition("Current&District", "Ernakulam");
-                    fillbycondition("Current&address", `Livra No 14,
-Link Valley,
-Opposite Kusumagiri Hospital,
-Kakkanad`);
+                    fillbycondition("Current&address", currentaddress);
 
                     fillbycondition("Current&Pin&Code|Current&Zip&Code|Current&Postal&Code", "682030");
                     fillbycondition("Current&City", "Kochi");
@@ -212,26 +236,15 @@ Kakkanad`);
                     fillbycondition("job&Title", "Senior Software Engineer");
                     fillbycondition("Experience", "5");
                     fillbycondition("Qualification", "MCA");
-                    fillbycondition("Expected&Salary", "As Per Industrial Standard");
-                    fillbycondition("current&Employer|Employer", "Fingent Technologies");
-var motivationletter=`Dear HR,
-As a young and motivated individual, I am extremely interested to submit an application for the position of Software Engineer in your Company.
-In November 2013, I completed my studies in Master of Computer Applications ( MCA ). This has given me a range of practical capabilities that will meet the needs of this role.
-While completing my MCA, I worked full-time as a Trainee for Hightrax. My responsibilities in this role included providing support for clients and complete their projects in .Net. After that, I worked full-time as a Junior Software Engineer for Caxita and am now a Senior Software Engineer. My responsibilities in this role included developing their Web application projects. This position has given me key employability skills while also allowing me to experience working in a professional and fast-paced work environment.
-With regard to my ability to meet the specific requirements of this job:
-Fast Learning: Fast Learning and  Implementation.
-Programming Logic: Not become stuck in any situation. Have good logic and creative ideas.
-Support Others: Support everyone to solve issues and improve knowledge.
-My employers have commended me for my high level of interpersonal skills and naturally engaging personality. My motivations include learning new things and the challenge of meeting key targets. My current and previous managers can be contacted to provide more information about my ability to meet the needs of this job.
-I understand that you will receive a large number of applications for this role. I do, however, believe that my motivation, commitment and pre-existing skills will allow me to fit into your work environment and immediately start supporting the needs of your organisation.
-I would appreciate the opportunity to meet with you to discuss my application at an interview. I have attached a copy of my resume for your consideration. I can be contacted at all times on the details provided above.
-Thanking you in advance for your time,
+                    fillbycondition("Expected&Salary|salary", "As Per Industrial Standard");
+                    fillbycondition("company|organization|current&Employer|Employer", "Fingent Technologies");
 
-Justin Jose
-Mobile.+919605656508`;
-                    fillbycondition("motivation|cover&Letter|message&Employer|job>comment",motivationletter );
+                    fillbycondition("motivation|cover&Letter|message&Employer|comment",motivationletter );
                     fillbycondition("job>comment",motivationletter );
-
+                    fillbycondition("unique",whyyouunique );
+                    fillbycondition("relocate","Yes");
+                    fillbycondition("citizen","Non-citizen seeking work authorization");
+                    ///fillbycondition("citizen","Indian");
 
 fillbycondition("Cover&Letter&Id","Cover Letter 2");
 fillbycondition("mail", "justnshalom@gmail.com");
@@ -283,14 +296,26 @@ fillbycondition("Pan&Card", "AUSPJ1560G");
     $("body")
         .on("blur", "[data-value-set-by-auto-js],[data-processed-by-auto-js]",
           function (e) {
-              if (e.originalEvent) {
-                  $(this).removeAttr("data-value-set-by-auto-js").removeAttr("data-processed-by-auto-js");
-                  if (!$(this).val()) {
+              var th=$(this);
+              setTimeout(function(){
+              if (e.originalEvent&&!th.attr("data-value-set-by-auto-js-disabled")) {
+                th.removeAttr("data-value-set-by-auto-js").removeAttr("data-processed-by-auto-js");
+                  if (!th.val()) {
                   processformfill();
               }
               }
-              
+            },1000);
           });
+          $("body")
+          .on("blur", "[data-value-set-by-auto-js]",
+            function (e) {
+                if (e.originalEvent) {
+                    if (!$(this).val()) {
+                    $(this).attr("data-value-set-by-auto-js-disabled",true);
+                }
+                }
+                
+            });
     $("body")
       .on("click", ".autojsiconclose",
       function (e) {
@@ -299,20 +324,20 @@ fillbycondition("Pan&Card", "AUSPJ1560G");
           localStorage.removeItem("autojsshow");
       });
 
-    $("body")
-      .on("focus click", "input,select,textarea",
-      function (e) {
-          return true;
-          var th = $(this);
-          var selectors = getgeneratedselectors(th);
-          th
-            .closest("div")
-            .css("position", "relative")
-            .append(
-              '<div class="profiledetails" style="position: absolute;width: 100%;top: 78px;z-index: 23;background-color: rgba(255, 255, 255, 0.94);min-height: 32px;padding: 15px;box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.22);">' +
-            '');
-          $(".profiledetails");
-      });
+    // // $("body")
+    // //   .on("focus click", "input,select,textarea",
+    // //   function (e) {
+    // //       return true;
+    // //       var th = $(this);
+    // //       var selectors = getgeneratedselectors(th);
+    // //       th
+    // //         .closest("div")
+    // //         .css("position", "relative")
+    // //         .append(
+    // //           '<div class="profiledetails" style="position: absolute;width: 100%;top: 78px;z-index: 23;background-color: rgba(255, 255, 255, 0.94);min-height: 32px;padding: 15px;box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.22);">' +
+    // //         '');
+    // //       $(".profiledetails");
+    // //   });
     $(window).click(function () {
         $(".reppathmaker").remove();
     });
