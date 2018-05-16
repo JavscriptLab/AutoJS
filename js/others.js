@@ -113,7 +113,6 @@ valid=false;
     }
     link=$(this).attr("href");
   })
-  debugger;
   if(valid&&link!=""&&$("input[type=text]:visible").length==0){
     window.location.href=link;
   }
@@ -129,9 +128,46 @@ sessionStorage.setItem("linkedinimported",true);
 
 
 });
+injs("monster",function(){
+$("body").on("click","section.card-content:not('.is-applied')",function(){
+  setTimeout(function () {
+    if($("#PrimaryJobApply").length>0&&$("#PrimaryJobApply").attr("href")){
+  var popup = window.open($("#PrimaryJobApply").attr("href"), '_blank');
+  window.focus();
+    }else{
+      $("#PrimaryJobApply").parent().click();
+    }
+  },5000) ;
+  
+});
+    
+  $("#CoverLetter").addClass("is-expanded");
+  setTimeout(function () {
+    $("#applyForm").submit();
+  },10000) 
+  setTimeout(function () {
+    window.close();
+  },100000); 
+});
 
-
-
+injs("smartrecruiters",function(){
+  $("#st-apply").click();
+  setTimeout(function () {
+    $("#st-connect-linkedin").click();
+  },5000)
+  $("body").on("click","#js-resume-upload",function(){
+    
+      setTimeout(function () {
+        $("#js-popup-form").submit();
+      },10000)
+    })
+});
+injs("linkedin",function(){
+  
+  setTimeout(function () {
+    $("#oauth__auth-form__submit-btn").click();
+  },2000)
+})
 
 
 })(myjQuery);

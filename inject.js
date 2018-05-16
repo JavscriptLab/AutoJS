@@ -63,8 +63,7 @@ valid=true;
             ////ls("openproject.js", "openproject.fingent.net");
             ls("stackoverflow.js", "stackoverflow");
             ls("profilerunner.js", "");
-            ls("applyjob.js", "work|job|career|apply|vacancies|vacancy|application|sollicitatie");
-            
+            ls("applyjob.js", "work|empl|software|job|career|apply|vacancies|vacancy|application|sollicitatie|profile|experince");            
             ls("manorama.js", "manoramanews.com|imasdk.googleapis.com|players.brightcove.net");
             ls("monstergulf.js", "monstergulf.com");
             ls("recaptcha.js", "google.com");

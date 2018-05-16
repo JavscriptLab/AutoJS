@@ -40,7 +40,7 @@
                             })
                         })
                         })
-                        selectorssuggestions = newselectorssuggestions;;
+                      ////  selectorssuggestions = newselectorssuggestions;;
                         }
 
                     var tempselectors = selectors;
@@ -214,8 +214,7 @@ Kakkanad`);
                     fillbycondition("Qualification", "MCA");
                     fillbycondition("Expected&Salary", "As Per Industrial Standard");
                     fillbycondition("current&Employer|Employer", "Fingent Technologies");
-
-                    fillbycondition("motivation|cover&Letter|message&Employer", `Dear HR,
+var motivationletter=`Dear HR,
 As a young and motivated individual, I am extremely interested to submit an application for the position of Software Engineer in your Company.
 In November 2013, I completed my studies in Master of Computer Applications ( MCA ). This has given me a range of practical capabilities that will meet the needs of this role.
 While completing my MCA, I worked full-time as a Trainee for Hightrax. My responsibilities in this role included providing support for clients and complete their projects in .Net. After that, I worked full-time as a Junior Software Engineer for Caxita and am now a Senior Software Engineer. My responsibilities in this role included developing their Web application projects. This position has given me key employability skills while also allowing me to experience working in a professional and fast-paced work environment.
@@ -229,11 +228,12 @@ I would appreciate the opportunity to meet with you to discuss my application at
 Thanking you in advance for your time,
 
 Justin Jose
-Mobile.+919605656508`);
+Mobile.+919605656508`;
+                    fillbycondition("motivation|cover&Letter|message&Employer|job>comment",motivationletter );
+                    fillbycondition("job>comment",motivationletter );
 
 
-
-
+fillbycondition("Cover&Letter&Id","Cover Letter 2");
 fillbycondition("mail", "justnshalom@gmail.com");
 fillbycondition("Passport", "K7226562");
 fillbycondition("Passport&Expiry", "02/01/2023");
