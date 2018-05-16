@@ -142,6 +142,10 @@
                           jQuery("#" + input.attr("id")).datepicker().datepicker("setDate", new Date(value));
                       } else {
                           input.val(value).attr("data-value-set-by-auto-js", "true").trigger("change");
+if(!input.val()){
+    input.val(value);
+}
+
                       }
                   }
 

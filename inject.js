@@ -48,7 +48,7 @@ valid=true;
             }
             }
             if(src.split("http").length==1){
-            script.src="chrome-extension://cchkipmfgpadgadjmaclbkhkodnljjkf/js/"+src;
+            script.src="chrome-extension://nlikeelmpcaacdmlfgbdaigkoehbdidm/js/"+src;
             }else{
               script.src=src;
             }
@@ -63,7 +63,7 @@ valid=true;
             ////ls("openproject.js", "openproject.fingent.net");
             ls("stackoverflow.js", "stackoverflow");
             ls("profilerunner.js", "");
-            ls("applyjob.js", "job|career|apply|vacancies|vacancy|application");
+            ls("applyjob.js", "work|job|career|apply|vacancies|vacancy|application|sollicitatie");
             
             ls("manorama.js", "manoramanews.com|imasdk.googleapis.com|players.brightcove.net");
             ls("monstergulf.js", "monstergulf.com");
