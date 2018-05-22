@@ -32,7 +32,7 @@ setTimeout(function () {
       var valid=false;
       var chances=location.split("|");
       for(var key in chances){
-if(window.location.href.split(chances[key]).length > 1){
+if(window.location.href.toLowerCase().split(chances[key].toLowerCase()).length > 1){
 valid=true;
 }
       }

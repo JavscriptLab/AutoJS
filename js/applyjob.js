@@ -135,8 +135,8 @@
                           }
                       }
                   }
-                  input = input.filter(":visible")
-                  if ((input && !input.val()) || input.attr("data-value-set-by-auto-js")) {
+                  input = input.filter(":visible").not("[type=file]")
+                  if ((input&&input.length>0 && !input.val()) || input.attr("data-value-set-by-auto-js")) {
                       if (input.hasClass("hasDatepicker") && input.attr("id") && jQuery("#" + input.attr("id")).datepicker) {
                           input.attr("data-value-set-by-auto-js", "true");
                           jQuery("#" + input.attr("id")).datepicker().datepicker("setDate", new Date(value));
