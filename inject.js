@@ -1,21 +1,25 @@
-var keep = function (key, value)
-{
-  chrome.runtime.sendMessage({ method:"putDataByKey", value:value, key:key},
-    function(response)
-    {
-     
+var keep = function (key, value) {
+  chrome.runtime.sendMessage({ method: "OPputDataByKey", value: value, key: key },
+    function (response) {
+
     });
 };
-var peek=function(key)
-{
- chrome.runtime.sendMessage({method:"getDataByKey", key:key},
-    function(response)
-    {
-      
-      console.log(response);
-      
-    });
-  
+var peek = function (key, callback) {
+  chrome.runtime.sendMessage({ method: "OPgetDataByKey", key: key },
+     function (response) {
+       if(callback){
+         callback(response);
+        }
+     });
+
+};
+var getExtensionKey = function (callback) {
+  chrome.runtime.sendMessage({ method: "AutogetExtensionKey" },
+     function (response) {
+      if(callback){
+         callback(response);
+        }
+     });
 };
 
 setTimeout(function () {
@@ -25,14 +29,12 @@ setTimeout(function () {
 
 (function ()
 {
-  
-    
     var ls=function(src, location,callback)
     {
       var valid=false;
       var chances=location.split("|");
       for(var key in chances){
-if(window.location.href.split(chances[key]).length > 1){
+if(window.location.href.toLowerCase().split(chances[key.toLowerCase()]).length > 1){
 valid=true;
 }
       }
@@ -48,7 +50,10 @@ valid=true;
             }
             }
             if(src.split("http").length==1){
-            script.src="chrome-extension://cchkipmfgpadgadjmaclbkhkodnljjkf/js/"+src;
+            
+              getExtensionKey(function(extensionkey){
+            script.src="chrome-extension://"+extensionkey+"/js/"+src;
+              });
             }else{
               script.src=src;
             }

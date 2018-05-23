@@ -141,7 +141,11 @@
                           input.attr("data-value-set-by-auto-js", "true");
                           jQuery("#" + input.attr("id")).datepicker().datepicker("setDate", new Date(value));
                       } else {
+                          if(input.attr("type")=="number"){
+                            value=value.replace(/[^0-9]/ig,"");
+                          }
                           input.val(value).attr("data-value-set-by-auto-js", "true").trigger("change");
+                        
                       }
                   }
 
@@ -202,7 +206,7 @@ Kakkanad`);
                     fillbycondition("Education>Major", "Computer Applications");
                     fillbycondition("Education>Start", "2010 August");
                     fillbycondition("Education>End", "2013 August");
-                   
+                    fillbycondition("Gender", "Male");
                     fillbycondition("Education>gpa", "6%");
                     fillbycondition("Education>Institution", "MG University");
                     fillbycondition("job&Title", "Senior Software Engineer");
@@ -225,8 +229,8 @@ Thanking you in advance for your time,
 
 Justin Jose
 Mobile.+919605656508`;
-                    fillbycondition("motivation|cover&Letter|message&Employer|job>comment",motivationletter );
-                    fillbycondition("job>comment",motivationletter );
+                    fillbycondition("motivation|cover&Letter|message&Employer",motivationletter );
+                    ////fillbycondition("job>comment",motivationletter );
 
 
 fillbycondition("Cover&Letter&Id","Cover Letter 2");
@@ -238,7 +242,7 @@ fillbycondition("Issue&Date", "03/01/2013");
 fillbycondition("Place&Issue", "Cochin");
 fillbycondition("Aadhar", "435634958632");
 fillbycondition("Pan&Card", "AUSPJ1560G");
-
+fillbycondition("phone|mobile|telefon", "+919605656508");
 
                 }
             }

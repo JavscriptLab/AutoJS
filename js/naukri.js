@@ -1,5 +1,5 @@
 (function ($) {
-  debugger;
+  
   var interval = setInterval(function () {
 
     setTimeout(function () {
