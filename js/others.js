@@ -100,12 +100,12 @@ valid=true;
 });
 
 
-injs("job|career|apply|vacancies|vacancy|application",
+injs("work|job|career|apply|vacancies|vacancy|application",
 function () {
   ////function for apply any links with apply now title
 var link="";
 var valid=true;
-  $('a[name*=apply],a[title*=apply]').each(function(){
+  $('a[name*=apply],a[title*=apply],a:contains("apply"):contains("job"),a:contains("Apply"):contains("job"),a:contains("Apply"):contains("Job")').each(function(){
     if(link!=""){
       if(link!=$(this).attr("href")){
 valid=false;
@@ -119,7 +119,7 @@ valid=false;
 
 ////function for apply any links with linkedin import button
 
-var linkedinselector=$('a[class*=import][class*=linkedin],a:contains("import"):contains("linkedin")');
+var linkedinselector=$('a[class*=import][class*=linkedin],a:contains("import"):contains("linkedin"),a:contains("apply"):contains("linkedin"),a:contains("Apply"):contains("LinkedIn")');
 if(linkedinselector.length>0&&!sessionStorage.getItem("linkedinimported")){
 
 window.location.href=linkedinselector.attr("href");

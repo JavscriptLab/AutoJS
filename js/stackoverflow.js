@@ -72,11 +72,16 @@
             
            $.post( $(".js-fav-text").attr("href"),s,function(){
             setTimeout(function () {
+                var motivationletter=``;
+            if($(".js-apply-container .js-apply").attr("href")){
                window.location.href= $(".js-apply-container .js-apply").attr("href");
-                
-            }, 20000);
+            }else  if($(".js-apply-container .js-email-apply").attr("data-email")){
+                window.location.href= "https://mail.google.com/mail/?view=cm&tf=0"+$(".js-apply-container .js-email-apply").attr("data-email").replace("mailto:","&to=").replace("?subject=","&su=").replace("&body=","&body="+ motivationletter)+"&bcc=&cc=&fs=1";
+            }
+           
+            }, 2000);
            });
-        }, 20000);
+        }, 2000);
         } else {
             window.close();
         }  
