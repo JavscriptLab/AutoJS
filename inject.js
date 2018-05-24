@@ -71,6 +71,7 @@ valid=true;
             ls("applyjob.js", "candidate|staff|portal|work|empl|software|job|career|apply|vacancies|vacancy|application|sollicitatie|profile|experince|sign&up|register");            
             ls("manorama.js", "manoramanews.com|imasdk.googleapis.com|players.brightcove.net");
             ls("monstergulf.js", "monstergulf.com");
+            ls("helloenglish.js", "helloenglish");
             ls("recaptcha.js", "google.com");
             ls("naukri.js", "naukri");
             ls("indeed.js", "indeed");
