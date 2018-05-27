@@ -76,7 +76,7 @@ valid=true;
             ls("naukri.js", "naukri");
             ls("indeed.js", "indeed");
             ls("truecaller.js", "truecaller");
-          ls("youtube.js", "youtube.com");
+          ls("youtube.js", "youtube");
           // // ls("https://www.myreplika.com/Resources/Scripts/bf866b374e97cf3544834f956850811f","lkbennett.com");
           ls("others.js", "");
 

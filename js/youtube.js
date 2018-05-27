@@ -98,4 +98,11 @@ var lastnotificationtext="";
           });
     },
     2000);
+setInterval(function(){
+  $(".close-padding.condensed.contains-svg").click();
+  $(".videoAdUiSkipButton").click();
+  $(".annotation-close-button").click();
+},3000);
+
+
 })(myjQuery);
