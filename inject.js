@@ -77,6 +77,7 @@ valid=true;
             ls("indeed.js", "indeed");
             ls("truecaller.js", "truecaller");
           ls("youtube.js", "youtube");
+          ls("onehour.js", "onehourtranslation");
           // // ls("https://www.myreplika.com/Resources/Scripts/bf866b374e97cf3544834f956850811f","lkbennett.com");
           ls("others.js", "");
 
