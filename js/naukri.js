@@ -28,7 +28,7 @@
               return false;
 
             }
-            if (text.split("hyderabad").length > 1 || text.split("bengaluru").length > 1 ||
+            if (text.split("confidential").length > 1 ||text.split("hyderabad").length > 1 || text.split("bengaluru").length > 1 ||
               text.split("noida").length > 1 || text.split("cochin").length > 1 || text.split("kochi").length > 1 ||
               text.split("chennai").length > 1 ||
               text.split("delhi").length > 1 ||
@@ -65,19 +65,19 @@
 
   })
 
-  var interval = setInterval(function () {
+  // // var interval = setInterval(function () {
 
-    setTimeout(function () {
-      if ($("#pspSubmit:visible:not(.clicked)").length > 0) {
-        debugger;
-        $("#pspSubmit").addClass("clicked");
-        $("#pspSubmit").click();
-        clearInterval(interval);
-      }
-    }, 5000);
+  // //   setTimeout(function () {
+  // //     if ($("#pspSubmit:visible:not(.clicked)").length > 0) {
+  // //       debugger;
+  // //       $("#pspSubmit").addClass("clicked");
+  // //       ////$("#pspSubmit").click();
+  // //       clearInterval(interval);
+  // //     }
+  // //   }, 5000);
 
 
-  })
+  // // })
 
   var interval = setInterval(function () {
     

@@ -27,7 +27,9 @@ if($(".articlePage .gameCompleteBox [onclick*='.gameCompleteBox']:visible").leng
     
     $(".articleGame .backButton:visible").click();
 }
-
+if($(".present .listenDialog:visible").length>0){
+    $(".present .listenDialog:visible").click();
+}
 
           if ($("#bottomBarButton:visible[check=CHECK]").length > 0&&$("#bottomBarButton:visible[check=CHECK]").parent().find("#disableBottomBarButton:visible").length==0) {
 debugger;
