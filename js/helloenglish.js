@@ -9,13 +9,15 @@
 
     });
     
-  var interval = setInterval(function () {
+var helloenglishfn=function(){
     $(".answerScreen:visible [onclick*=hideAnswerScreen],#bottomBarButton:visible[check=CHECK]").attr("accesskey","s");
     $(".removeacesskey").removeAttr("accesskey");
     $(".SlideType_Jumble_Slide.present #jumbleSource .answerListClass:visible,.articlePage [class*=option]:visible,section.present .sectionInnerContainer:visible td[class*=Checked],.questionScreen:visible [class*=option]").each(function(i){
         $(this).addClass(".removeacesskey").attr("accesskey",(i+1));
     });
-    
+    $(".flyingFlowerRing").each(function(){ 
+        $(this).attr("accesskey",$(this).text()); 
+    });   
 if($(".answerScreen:visible [onclick*=hideAnswerScreen]").length>0){
     $(".answerScreen:visible [onclick*=hideAnswerScreen]").click();
 }
@@ -55,9 +57,24 @@ debugger;
             $(".startGameButton:visible").addClass("clicked");
             $(".startGameButton:visible").click();
           }
-          
-        }, 5000);
+}
+
+
+  var interval = setInterval(function () {
     
+    helloenglishfn();
+        }, 5000);
+        var globalinserti=0;
+        $(document).on('DOMNodeInserted', function(e) {
+            globalinserti++;
+            var localinserti=globalinserti;
+            setTimeout(function(){
+                if(globalinserti==localinserti){
+            helloenglishfn();
+        }
+            },1000)
+        });
+        
     
   });
 })(myjQuery);

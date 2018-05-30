@@ -3,7 +3,7 @@
 
 
 
-    function fillbycondition(keys, value) {
+    function fillbycondition(keys, value,notvalue) {
         $.each(keys.split("|"),
           function (i, v) {
               var selectors = {};
@@ -119,24 +119,32 @@
                   input.attr("data-processed-by-auto-js", true);
                   if ($(this).prop("tagName").toLowerCase() == "label") {
                       if ($(this).attr("for")) {
-                          input = $("#" + $(this).attr("for"));
+                          input = $("[id='" + $(this).attr("for")+"']");
                       } else if ($(this).parent().find("input:visible,select:visible,textarea:visible").not("[type=hidden]").length == 1) {
                           input = $(this).parent().find("input:visible,select:visible,textarea:visible").not("[type=hidden]");
                       }
                   }
-                  if ($(this).prop("tagName").toLowerCase() == "select") {
+                  var allowtofilldropdown=true;
+                  if (input&&input.length>0&&input.prop("tagName").toLowerCase() == "select") {
                       var capitalize = value.charAt(0).toUpperCase() + value.slice(1);
-                      var selectableoption = input.find("option:contains('" + value + "'),option:contains('" + capitalize + "'),option:contains('" + value.toLowerCase() + "'),option:contains('" + value.toUpperCase() + "'),option[value='" + value + "']")
+                      
+                      var selectableoption = input.find("option:contains('" + value + "'),option:contains('" + capitalize + "'),option:contains('" + value.toLowerCase() + "'),option:contains('" + value.toUpperCase() + "'),option[value='" + value + "']");
+                      if(notvalue){
+                        var notvaluecapitalize = notvalue.charAt(0).toUpperCase() + notvalue.slice(1);
+                        selectableoption=selectableoption.not("option:contains('" + notvalue + "'),option:contains('" + notvaluecapitalize + "'),option:contains('" + notvalue.toLowerCase() + "'),option:contains('" + notvalue.toUpperCase() + "'),option[value='" + notvalue + "']");
+                      }
                       if (selectableoption.length > 0) {
                           if (selectableoption.attr('value')) {
                               value = selectableoption.attr('value');
                           } else {
                               value = selectableoption.text();
                           }
-                      }
+                        }else{
+                            allowtofilldropdown=false;
+                        }
                   }
                   input = input.filter(":visible").not("[type=file]")
-                  if ((input&&input.length>0 && !input.val()) || input.attr("data-value-set-by-auto-js")) {
+                  if (allowtofilldropdown&&((input&&input.length>0 && !input.val()) || input.attr("data-value-set-by-auto-js"))) {
                       if (input.hasClass("hasDatepicker") && input.attr("id") && jQuery("#" + input.attr("id")).datepicker) {
                           input.attr("data-value-set-by-auto-js", "true");
                           jQuery("#" + input.attr("id")).datepicker().datepicker("setDate", new Date(value));
@@ -145,7 +153,6 @@
                             value=value.replace(/[^0-9]/ig,"");
                           }
                           input.val(value).attr("data-value-set-by-auto-js", "true").trigger("change");
-                        
                       }
                   }
 
@@ -167,26 +174,57 @@
             if (localdominserti == dominserti) {
                 if ($("input,select,textarea").filter(":visible").not("[data-processed-by-auto-js]").length > 0) {
                     $("input,select,textarea").filter(":visible").attr("data-processed-by-auto-js", true);
+
+                    var motivationletter=`Dear HR, 
+                    As a young and motivated individual, I am very interested in applying for the position of Software Engineer in your Company. 
+                    In November 2013, I completed my studies in Master of Computer Applications (MCA). This has been given the scope of practical capabilities that will meet the needs of this role. 
+                    While completing my MCA, I worked full time as a Trainee for Hightrax. My responsibilities in this role include providing support for clients and complete their projects in DotNet. After that, I worked full-time as a Junior Software Engineer for Caxita and now a Senior Software Engineer. My responsibilities in this role include developing their web application projects. This position has given me key employability skills while also allowing me to work in a professional and fast-paced work environment. 
+                    With regard to my ability to meet the specific requirements of this job: 
+                    Fast Learning Fast Learning and implementation. 
+                    Programming Logic: Not becoming stuck in any situation. Have good logic and creative ideas. 
+                    Support Others: Support everyone to solve issues and improve knowledge.
+                    My employers have commended me for my high level of interpersonal skills and naturally engaging personality. My motivations include learning new things and the challenge of meeting key targets. My current and previous managers can learn more about my ability to meet the needs of this job. 
+                    I understand that you are looking for a role for this role. I do, however, believe that my motivation, commitment, and pre-existing skills will allow you to fit into your work environment and immediately start supporting the needs of your organization, 
+                    I would like to discuss my application at an interview. I have attached a copy of my resume for your consideration. I can be contacted at any time. 
+                    Thanking you for your time, 
+                    
+                    Justin Jose 
+                    Mobile. + 919605656508`;
+
+
+
                     fillbycondition("Id&Card", "NMZ0092247");
                     fillbycondition("title", "Mr");
                     fillbycondition("password", "KingLives@11");
-                    fillbycondition("phone|mobile|telefon", "+919605656508");
+                    fillbycondition("phone|mobile|telefon|Telefoon", "+91");
+                    fillbycondition("phone|mobile|telefon|Telefoon", "India");
+                    fillbycondition("phone|mobile|telefon|Telefoon", "+919605656508");
                     fillbycondition("full&Name|Full&name", "Justin Jose");
-                    fillbycondition("first&Name|vor&Name|name", "Justin");
-                    fillbycondition("last&Name|nach&Name|sur&Name", "Jose");
+                    fillbycondition("first&Name|vor&Name|name|Voor&naam", "Justin");
+                    fillbycondition("last&Name|nach&Name|sur&Name|Achter&naam", "Jose");
                     fillbycondition("user&Name|user&name", "justnshalom");
-                    fillbycondition("birth|dob", "1988-06-01");                    
+                    fillbycondition("birth|dob|GeboorteDatum", "01");                    
+                    fillbycondition("birth|dob|GeboorteDatum", "Jun");                    
+                    fillbycondition("birth|dob|GeboorteDatum", "June");                   
+                    fillbycondition("birth|dob|GeboorteDatum", "1988");                    
+                    fillbycondition("birth|dob|GeboorteDatum", "1988-06-01");                    
+
                   
                     fillbycondition("Religion", "Christian");
                     fillbycondition("Marital", "Married");
 
+                    fillbycondition("nationality", "Other");
+                    fillbycondition("nationality", "Non US");
+                    fillbycondition("nationality", "Non EU");
                     fillbycondition("nationality", "Indian");
-                    fillbycondition("Country", "India");
+                    fillbycondition("Country", "Other");
+                    fillbycondition("Country", "India","British India");
                     fillbycondition("State", "Kerala");
                     fillbycondition("District", "Kottayam");
-                    fillbycondition("location|City", "Kottayam");
-                    fillbycondition("strasse|address", "Koonamackel House,  South Pampady PO");
-                    fillbycondition("plz|Pin&Code|Zip&Code|Postal&Code", "686521");
+                    
+                    fillbycondition("strasse|address|Adres", "Koonamackel House,  South Pampady PO");
+                    fillbycondition("location|City|Woonplaats", "Kottayam");
+                    fillbycondition("plz|Pin&Code|Zip&Code|Post&Code", "686521");
 
                     fillbycondition("Current&District", "Ernakulam");
                     fillbycondition("Current&address", `Livra No 14,
@@ -206,31 +244,21 @@ Kakkanad`);
                     fillbycondition("Education>Major", "Computer Applications");
                     fillbycondition("Education>Start", "2010 August");
                     fillbycondition("Education>End", "2013 August");
-                    fillbycondition("Gender", "Male");
+                    fillbycondition("Gender|Geslacht", "Male");
                     fillbycondition("Education>gpa", "6%");
-                    fillbycondition("Education>Institution", "MG University");
+                    fillbycondition("Institution", "Others");
+                    fillbycondition("Institution", "MG University");
                     fillbycondition("job&Title", "Senior Software Engineer");
                     fillbycondition("Experience", "5");
+                    
+                    fillbycondition("Highest&Education", "Master");
                     fillbycondition("Qualification", "MCA");
                     fillbycondition("Expected&Salary", "As Per Industrial Standard");
                     fillbycondition("current&Employer|Employer", "Fingent Technologies");
-var motivationletter=`Dear HR,
-As a young and motivated individual, I am extremely interested to submit an application for the position of Software Engineer in your Company.
-In November 2013, I completed my studies in Master of Computer Applications ( MCA ). This has given me a range of practical capabilities that will meet the needs of this role.
-While completing my MCA, I worked full-time as a Trainee for Hightrax. My responsibilities in this role included providing support for clients and complete their projects in .Net. After that, I worked full-time as a Junior Software Engineer for Caxita and am now a Senior Software Engineer. My responsibilities in this role included developing their Web application projects. This position has given me key employability skills while also allowing me to experience working in a professional and fast-paced work environment.
-With regard to my ability to meet the specific requirements of this job:
-Fast Learning: Fast Learning and  Implementation.
-Programming Logic: Not become stuck in any situation. Have good logic and creative ideas.
-Support Others: Support everyone to solve issues and improve knowledge.
-My employers have commended me for my high level of interpersonal skills and naturally engaging personality. My motivations include learning new things and the challenge of meeting key targets. My current and previous managers can be contacted to provide more information about my ability to meet the needs of this job.
-I understand that you will receive a large number of applications for this role. I do, however, believe that my motivation, commitment and pre-existing skills will allow me to fit into your work environment and immediately start supporting the needs of your organisation.
-I would appreciate the opportunity to meet with you to discuss my application at an interview. I have attached a copy of my resume for your consideration. I can be contacted at all times on the details provided above.
-Thanking you in advance for your time,
 
-Justin Jose
-Mobile.+919605656508`;
-                    fillbycondition("motivation|cover&Letter|message&Employer",motivationletter );
+                    fillbycondition("motivation|cover&Letter|message&Employer|message&job|comment&employer|comment&job",motivationletter );
                     ////fillbycondition("job>comment",motivationletter );
+                    
 
 
 fillbycondition("Cover&Letter&Id","Cover Letter 2");
