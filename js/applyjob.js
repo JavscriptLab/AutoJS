@@ -203,11 +203,11 @@
                     fillbycondition("first&Name|vor&Name|name|Voor&naam", "Justin");
                     fillbycondition("last&Name|nach&Name|sur&Name|Achter&naam", "Jose");
                     fillbycondition("user&Name|user&name", "justnshalom");
-                    fillbycondition("birth|dob|GeboorteDatum", "01");                    
-                    fillbycondition("birth|dob|GeboorteDatum", "Jun");                    
-                    fillbycondition("birth|dob|GeboorteDatum", "June");                   
-                    fillbycondition("birth|dob|GeboorteDatum", "1988");                    
-                    fillbycondition("birth|dob|GeboorteDatum", "1988-06-01");                    
+                    fillbycondition("birth|dob|GeboorteDatum|bday", "01");                    
+                    fillbycondition("birth|dob|GeboorteDatum|bday", "Jun");                    
+                    fillbycondition("birth|dob|GeboorteDatum|bday", "June");                   
+                    fillbycondition("birth|dob|GeboorteDatum|bday", "1988");                    
+                    fillbycondition("birth|dob|GeboorteDatum|bday", "1988-06-01");                    
 
                   
                     fillbycondition("Religion", "Christian");
