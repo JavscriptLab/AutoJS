@@ -102,6 +102,7 @@ valid=true;
 
 injs("work|job|career|apply|vacancies|vacancy|application",
 function () {
+  if(window.location.href.split("google").length==1){
   ////function for apply any links with apply now title
 var link="";
 var valid=true;
@@ -126,7 +127,7 @@ window.location.href=linkedinselector.attr("href");
 sessionStorage.setItem("linkedinimported",true);
 }
 
-
+  }
 });
 injs("monster",function(){
 $("body").on("click","section.card-content:not('.is-applied')",function(){
