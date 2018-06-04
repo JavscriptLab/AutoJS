@@ -166,7 +166,8 @@
           .append("<style class='autostyles' type='text/css'>" + selector + "{ " + stylevalue + "}</style>");
     }
     var dominserti = 0;
-    function processformfill() {
+    function processformfill(timeout) {
+        timeout=!timeout?10000:timeout;
         dominserti++;
         var localdominserti = dominserti;
         
@@ -236,11 +237,11 @@ Kakkanad`);
                     fillbycondition("Current&City", "Kochi");
 
                     fillbycondition("linkedin|LinkedIn", "https://linkedin.com/in/justnshalom/");
-                    fillbycondition("GitHub", "https://github.com/JavscriptLab/");
+                    fillbycondition("Git&Hub", "https://github.com/JavscriptLab/");
                     fillbycondition("Website|WebSite", "http://justinshalom.com/");
-
-
-
+                    fillbycondition("twitter", "https://twitter.com/justnshalom");
+                    fillbycondition("stackoverflow", "https://stackexchange.com/users/3252569/justin-jose");
+                    
                     fillbycondition("Education>Major", "Computer Applications");
                     fillbycondition("Education>Start", "2010 August");
                     fillbycondition("Education>End", "2013 August");
@@ -274,7 +275,7 @@ fillbycondition("phone|mobile|telefon", "+919605656508");
 
                 }
             }
-        }, 5000);
+        }, 10000);
     }
 
    
@@ -309,12 +310,21 @@ fillbycondition("phone|mobile|telefon", "+919605656508");
             localStorage.setItem("autojsshow", true);
         });
     $("body")
-        .on("blur", "[data-value-set-by-auto-js],[data-processed-by-auto-js]",
+        .on("keyup", "[data-value-set-by-auto-js],[data-processed-by-auto-js]",
           function (e) {
               if (e.originalEvent) {
+                if (e.ctrlKey) {
+                    if (e.keyCode == 81) { // 'A' or 'a'
+                      
+                        e.preventDefault();
+                        return false;
+                  
+               
                   $(this).removeAttr("data-value-set-by-auto-js").removeAttr("data-processed-by-auto-js");
                   if (!$(this).val()) {
-                  processformfill();
+                  processformfill(0);   
+                }
+                }
               }
               }
               
