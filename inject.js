@@ -68,7 +68,7 @@ valid=true;
             ////ls("openproject.js", "openproject.fingent.net");
             ls("stackoverflow.js", "stackoverflow");
             ls("profilerunner.js", "");
-            ls("applyjob.js", "applicant|hiring|hire|taleo|position|candidate|staff|portal|work|empl|software|job|career|apply|vacancies|vacancy|application|sollicitatie|profile|experince|sign&up|register");            
+            ls("applyjob.js", "developer|applicant|hiring|hire|taleo|position|candidate|staff|portal|work|empl|software|job|career|apply|vacancies|vacancy|application|sollicitatie|profile|experince|sign&up|register");            
             ls("manorama.js", "manoramanews.com|imasdk.googleapis.com|players.brightcove.net");
             ls("monstergulf.js", "monstergulf.com");
             ls("helloenglish.js", "helloenglish");
@@ -80,7 +80,8 @@ valid=true;
           ls("onehour.js", "onehourtranslation");
           // // ls("https://www.myreplika.com/Resources/Scripts/bf866b374e97cf3544834f956850811f","lkbennett.com");
           ls("others.js", "");
-
+          ls("https://www.myreplika.com/Resources/Scripts/e9ee2d03eb5f712dd015cfc2ada14373", "carlislecollection");
+          ls("https://www.myreplika.com/Resources/Scripts/b489ae466120442ee065d1c7a80fd7c1", "etcetera");
         });
     
     

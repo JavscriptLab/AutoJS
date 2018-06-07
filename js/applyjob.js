@@ -220,6 +220,7 @@
                     fillbycondition("nationality", "Indian");
                     fillbycondition("Country", "Other");
                     fillbycondition("Country", "India","British India");
+                    fillbycondition("State", "KL");
                     fillbycondition("State", "Kerala");
                     fillbycondition("District", "Kottayam");
                     
@@ -235,7 +236,8 @@ Kakkanad`);
 
                     fillbycondition("Current&Pin&Code|Current&Zip&Code|Current&Postal&Code", "682030");
                     fillbycondition("Current&City", "Kochi");
-
+                    
+                    fillbycondition("skype", "justinshalom");
                     fillbycondition("linkedin|LinkedIn", "https://linkedin.com/in/justnshalom/");
                     fillbycondition("Git&Hub", "https://github.com/JavscriptLab/");
                     fillbycondition("Website|WebSite", "http://justinshalom.com/");
@@ -275,16 +277,16 @@ fillbycondition("phone|mobile|telefon", "+919605656508");
 
                 }
             }
-        }, 10000);
+        }, timeout);
     }
 
    
-    $(document).on('DOMNodeInserted', function (e) {
-        processformfill();
+    // // $(document).on('DOMNodeInserted', function (e) {
+       processformfill();
        
            
-    })
-    $(document).trigger('DOMNodeInserted');
+    // // })
+    // // $(document).trigger('DOMNodeInserted');
     $("#resumator-apply-with-linkedin-wrapper a").click();
     $("#resumator-address-value").val("Koonammakkel House");
     $("#resumator-city-value").val("Kottayam");
@@ -309,25 +311,28 @@ fillbycondition("phone|mobile|telefon", "+919605656508");
             $(".autojs").show();
             localStorage.setItem("autojsshow", true);
         });
-    $("body")
-        .on("keyup", "[data-value-set-by-auto-js],[data-processed-by-auto-js]",
+        $(document)
+        .on("keyup",
           function (e) {
               if (e.originalEvent) {
                 if (e.ctrlKey) {
                     if (e.keyCode == 81) { // 'A' or 'a'
-                      
-                        e.preventDefault();
-                        return false;
-                  
-               
+                  processformfill(1);   
+                }
+              }
+              }
+          });
+
+
+    $("body")
+        .on("blur", "[data-value-set-by-auto-js],[data-processed-by-auto-js]",
+          function (e) {
+              if (e.originalEvent) {
                   $(this).removeAttr("data-value-set-by-auto-js").removeAttr("data-processed-by-auto-js");
                   if (!$(this).val()) {
-                  processformfill(0);   
+                 /// processformfill(0);   
                 }
                 }
-              }
-              }
-              
           });
     $("body")
       .on("click", ".autojsiconclose",
