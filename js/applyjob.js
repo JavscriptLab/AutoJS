@@ -377,4 +377,4 @@ fillbycondition("phone|mobile|telefon", "+919605656508");
 
 
 
-})(myjQuery);
+    })(window.myjQuery?myjQuery:jQuery);
