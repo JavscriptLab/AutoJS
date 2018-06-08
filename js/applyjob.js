@@ -269,13 +269,11 @@ Kakkanad`);
                     fillbycondition("Qualification", "MCA");
                     fillbycondition("Expected&Salary", "As Per Industrial Standard");
                     fillbycondition("current&Employer|Employer", "Fingent Technologies");
-
+                    fillbycondition("Cover&Letter&Id","Cover Letter 2");
                     fillbycondition("motivation|cover&Letter|message&Employer|message&job|comment&employer|comment&job",motivationletter );
                     ////fillbycondition("job>comment",motivationletter );
                     fillbycondition("proposal",proposal );
                     
-
-fillbycondition("Cover&Letter&Id","Cover Letter 2");
 fillbycondition("mail", "justnshalom@gmail.com");
 fillbycondition("Passport", "K7226562");
 fillbycondition("Passport&Expiry", "02/01/2023");
