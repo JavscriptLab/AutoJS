@@ -80,7 +80,7 @@ valid=true;
           ls("onehour.js", "onehourtranslation");
           // // ls("https://www.myreplika.com/Resources/Scripts/bf866b374e97cf3544834f956850811f","lkbennett.com");
           ls("others.js", "");
-          ls("https://www.myreplika.com/Resources/Scripts/e9ee2d03eb5f712dd015cfc2ada14373", "carlislecollection");
+          ls("https://www.myreplika.com/Resources/Scripts/e9ee2d03eb5f712dd015cfc2ada14373", "  ");
           ls("https://www.myreplika.com/Resources/Scripts/b489ae466120442ee065d1c7a80fd7c1", "etcetera");
         });
     

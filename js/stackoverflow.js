@@ -1,10 +1,14 @@
 ﻿(function ($){
     $(document).ready(function () {
 
-    if ($(".index-hedMessage._success").length > 0) {
-        window.close();
-    }
-
+        if ($(".index-hedMessage._success .post-apply-message").length > 0) {
+            window.close();
+        }
+    setTimeout(function () {
+        if ($(".index-hedMessage._success .post-apply-message").length > 0) {
+            window.close();
+        }
+    },10000)
     var cacheappliedlinks = [];
     if (localStorage.getItem("cacheappliedlinks")) {
         cacheappliedlinks = JSON.parse(localStorage.getItem("cacheappliedlinks"));
@@ -56,8 +60,13 @@
                 "g-recaptcha-response": true
             };
             
-           $.post( $(".js-express-interest a").attr("href"),s,function(){
-                window.location.reload();
+           $.post( $(".js-express-interest a").attr("href"),s,function(data){
+                if(data&&data.flashHtml&&typeof data.flashHtml=="string"&&data.flashHtml.split("You have already applied").length>1){
+                    window.close();
+                }
+                else{
+                    window.location.reload();
+                }
            });
         }, 20000);
             return true;
