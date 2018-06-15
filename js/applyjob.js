@@ -191,7 +191,18 @@
                     
                     Justin Jose 
                     Mobile. + 919605656508`;
+var proposal=`I'm a senior software engineer in Php and DotNet. I have extensive experience in building high-quality websites.
 
+My experiences range from building responsive mobile sites that work well, cross-browser to building scalable sites for different industries like financial, e-commerce, CMS, HR management, event management etc. I like working on projects with a team that cares about creating beautiful, unique and usable interfaces. I specialize in and am passionate about creating intelligent designs using simple, short, smart and reusable scripts. 
+
+It's important for me to build long-term relationships with clients, so I'm primarily looking for long-term projects. When it comes to clients, their ideas are of utmost importance, and I love to apply my imagination to bring their vision to life. 
+
+I'm flexible with my working hours and am happy to work closely with any existing freelancers you work with. 
+
+I can promise me that whatever your idea, I’ll be able to deliver a satisfying result on time and on budget. I also welcome any opportunity to showcase my coding abilities.  
+
+I look forward to hearing from you! 
+`;
 
 
                     fillbycondition("Id&Card", "NMZ0092247");
@@ -258,13 +269,11 @@ Kakkanad`);
                     fillbycondition("Qualification", "MCA");
                     fillbycondition("Expected&Salary", "As Per Industrial Standard");
                     fillbycondition("current&Employer|Employer", "Fingent Technologies");
-
+                    fillbycondition("Cover&Letter&Id","Cover Letter 2");
                     fillbycondition("motivation|cover&Letter|message&Employer|message&job|comment&employer|comment&job",motivationletter );
                     ////fillbycondition("job>comment",motivationletter );
+                    fillbycondition("proposal",proposal );
                     
-
-
-fillbycondition("Cover&Letter&Id","Cover Letter 2");
 fillbycondition("mail", "justnshalom@gmail.com");
 fillbycondition("Passport", "K7226562");
 fillbycondition("Passport&Expiry", "02/01/2023");
