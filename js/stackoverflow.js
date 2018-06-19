@@ -1,4 +1,9 @@
-﻿(function ($){
+﻿// // var element = document.getElementsByClassName("apply-captcha");
+// // for (var i = 0; i < element.length; i++) {
+// //         element[i].parentNode.removeChild(element[i]);
+// // }
+(function ($){
+    // // $(".apply-captcha").remove();
     $(document).ready(function () {
 
         if ($(".index-hedMessage._success .post-apply-message").length > 0) {
@@ -100,17 +105,42 @@
     }
 
     if ($(".has-error").length == 0 && $(".message:visible").length == 0) {
+
         if ($('.btn._medium.j-apply-btn[type="submit"][value="Apply"]').length > 0) {
             $("#CandidatePhoneNumber").val("9605656508");
-            setTimeout(function () {
+            var clicksubmit=setInterval(function () {
+if($(".has-error").length == 0&&$(".recaptcha.challenge").length==0){
                 $('.btn._medium.j-apply-btn[type="submit"][value="Apply"]').trigger("click");
+                clearInterval(clicksubmit);
+}
             }, 30000);
         }
     } else {
-        setTimeout(function () {
-
+        var clicksubmit2= setInterval(function () {
+            if($(".has-error").length == 0&&$(".recaptcha.challenge").length==0){
             $('.btn._medium.j-apply-btn[type="submit"][value="Apply"]').trigger("click");
+            clearInterval(clicksubmit2);
+        }
         }, 30000);
     }
     })
+if(window.top==window.parent){
+    window.addEventListener("message",
+    function (e) { 
+        if(e.origin=="https://www.google.com"){
+    console.log(e);    
+    console.log(e.data);
+    }
+});
+}else{
+    if(window.top!=window.parent){
+        setTimeout(function(){
+            
+        var transferdata = {};
+        transferdata = '{"message":"161b1900","messageType":"x","Va":null}';
+        parent.postMessage(transferdata, "*");
+        
+        },1000);
+    }
+}
 })(myjQuery);
