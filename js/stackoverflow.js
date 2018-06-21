@@ -103,25 +103,73 @@
     if ($(".-previously-applied-icon").length == 1) {
         window.close();
     }
+    if($(".major-provider.google-login").length>0){
+        $(".major-provider.google-login").click();
+        return;
+    }
+    var timeout=localStorage.getItem("timeoutforapply");
+
 
     if ($(".has-error").length == 0 && $(".message:visible").length == 0) {
-
+////login-link
         if ($('.btn._medium.j-apply-btn[type="submit"][value="Apply"]').length > 0) {
             $("#CandidatePhoneNumber").val("9605656508");
+                
+           
+            if($(".login-link").length>0){
+                window.location.href=$(".login-link").attr("href");
+                return;
+            }
             var clicksubmit=setInterval(function () {
-if($(".has-error").length == 0&&$(".recaptcha.challenge").length==0){
+if($(".has-error").length == 0&&$("iframe[title='recaptcha challenge']").length==0){
+
+   
                 $('.btn._medium.j-apply-btn[type="submit"][value="Apply"]').trigger("click");
                 clearInterval(clicksubmit);
-}
-            }, 30000);
+            }else if($("iframe[title='recaptcha challenge']").length>0){
+                var fs = window.RequestFileSystem || window.webkitRequestFileSystem;
+                if (!fs) {
+                  result.textContent = "check failed?";
+                  return;
+                }
+                fs(window.TEMPORARY, 100, function(fs) {
+                    window.postMessage({ method: "AutoOpenIncogitowindow", url: window.location.href},"*");
+                    clearInterval(clicksubmit2);
+                    setTimeout(function(){
+
+                       window.close();
+                    },4000);
+                }, function(err) {
+                  result.textContent = "it seems like you are in incognito mode";
+                });
+              }
+            }, 50000);
         }
     } else {
         var clicksubmit2= setInterval(function () {
-            if($(".has-error").length == 0&&$(".recaptcha.challenge").length==0){
+            if($(".has-error").length == 0&&$("iframe[title='recaptcha challenge']").length==0){
             $('.btn._medium.j-apply-btn[type="submit"][value="Apply"]').trigger("click");
             clearInterval(clicksubmit2);
-        }
-        }, 30000);
+            }else{
+                if($("iframe[title='recaptcha challenge']").length>0){
+                    var fs = window.RequestFileSystem || window.webkitRequestFileSystem;
+                    if (!fs) {
+                      result.textContent = "check failed?";
+                      return;
+                    }
+                    fs(window.TEMPORARY, 100, function(fs) {
+                        window.postMessage({ method: "AutoOpenIncogitowindow", url: window.location.href},"*");
+                        clearInterval(clicksubmit2);
+                        setTimeout(function(){
+    
+                           window.close();
+                        },4000);
+                    }, function(err) {
+                      result.textContent = "it seems like you are in incognito mode";
+                    });
+            }
+            }
+        }, 50000);
     }
     })
 if(window.top==window.parent){
@@ -138,7 +186,7 @@ if(window.top==window.parent){
             
         var transferdata = {};
         transferdata = '{"message":"161b1900","messageType":"x","Va":null}';
-        parent.postMessage(transferdata, "*");
+       //// parent.postMessage(transferdata, "*");
         
         },1000);
     }

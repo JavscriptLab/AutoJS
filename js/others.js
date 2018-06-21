@@ -77,6 +77,26 @@ valid=true;
   injs("accounts.google.com",
     function()
     {
+      
+      
+      if($('[data-third-party-email="team@stackoverflow.com"]').length>0)
+        {
+          if($('[data-authuser="1"]').length>0){
+            $('[data-authuser="1"]').trigger("click");
+          }else{
+            $("#identifierId").val("justnshalom@gmail.com");
+            $("#identifierNext").click();
+setTimeout(function(){
+  if($('[data-email="justnshalom@gmail.com"]').length>0)
+    {
+      $("[name='password']").val("Kinglives@11");
+      $("#passwordNext").click();
+    }
+  },5000);
+            
+          }
+          
+        }
       if($('[data-third-party-email="info@truecaller.com"]').length>0)
       {
         var currentauth=localStorage.getItem("authuser");

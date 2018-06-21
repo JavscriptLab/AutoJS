@@ -1,5 +1,17 @@
+var vid=0;
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  
+  if (request.method =="AutoOpenIncogitowindow")
+    {
+      debugger;
+      var options={"url": request.url, "incognito": true,'focused': false};
+      // // if(vid!=0){
+      // //   options.windowId=vid;
+      // // }
+      chrome.windows.create(options, function(chromeWindow) {
+        vid = chromeWindow.id;
+
+    });
+    }
   if (request.method =="AutoputDataByKey")
   {
     var obj = {};
