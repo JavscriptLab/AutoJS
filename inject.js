@@ -42,9 +42,22 @@ setTimeout(function () {
     peek("owner");
   },
   5000);
-
+ 
+ 
+    if(chrome.extension.inIncognitoContext){
+      debugger;
+      setInterval( function(){
+        if (! document.hasFocus() ) {
+        chrome.runtime.sendMessage({method:"closeThis"});
+      } 
+      }, 20 );
+    }
+ 
 (function ()
 {
+  
+
+  
     var ls=function(src, location,callback)
     {
       var valid=false;

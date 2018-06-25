@@ -190,5 +190,15 @@ injs("linkedin",function(){
   },2000)
 })
 
-
+var fs = window.RequestFileSystem || window.webkitRequestFileSystem;
+if (!fs) {
+ //// console.log("check failed?");
+} else {
+  fs(window.TEMPORARY,
+     100,
+     function(){
+       
+     },
+     console.log.bind(console, "incognito mode"));
+}
 })(myjQuery);

@@ -1,5 +1,9 @@
 var vid=0;
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+  if (request.method =="closeThis")
+  {
+    chrome.tabs.remove(sender.tab.id)
+  }
   if (request.method =="AutoOpenIncogitowindow")
     {
       debugger;

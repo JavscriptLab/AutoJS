@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "AutoJS",
-  "version": "1.0",
+  "version": "1.1",
   "background": {
     "scripts": ["main.js"],
     "persistent": true
@@ -9,18 +9,13 @@
   "permissions": ["https://*/*",
     "http://*/*",
     "tabs","management","debugger","activeTab","storage"],
-  "minimum_chrome_version": "23",
+  "minimum_chrome_version": "60",
   "content_scripts": [
     {
       "matches":["<all_urls>"],
       "all_frames":true,
       "js":[ "inject.js"]
     }
-    ////{
-    ////  "matches": [ "https://openproject.fingent.net/*" ],
-    ////  "all_frames": true,
-    ////  "js": [ "openproject.js" ]
-    ////}
   ],
   "web_accessible_resources": [
     "js/*"
