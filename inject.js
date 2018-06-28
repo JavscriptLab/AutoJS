@@ -42,20 +42,56 @@ setTimeout(function () {
     peek("owner");
   },
   5000);
- 
- 
-    if(chrome.extension.inIncognitoContext){
-      debugger;
-      setInterval( function(){
-        if (! document.hasFocus() ) {
-        chrome.runtime.sendMessage({method:"closeThis"});
-      } 
-      }, 20 );
+
+  var leavewindow =function(){
+    ///console.log(document.hasFocus());
+    ////console.log(document.hasFocus);
+    var clength=localStorage.getItem("clength");
+    if(!clength){
+      clength=0;
     }
+   
+    if (!document.hasFocus()&&(typeof mouseleaved=='undefined'||mouseleaved==true)) {
+      clength++;
+      localStorage.setItem("clength",clength);
+      ///console.log(clength);
+      
+    chrome.runtime.sendMessage({method:"closeThis"});
+  
+  } else{
+    clength=0;
+    localStorage.setItem("clength",clength);
+  }
+  }
+  var mouseleaved=false;
+ 
  
 (function ()
 {
-  
+ 
+  if(chrome.extension.inIncognitoContext){
+
+    document.onfocus= function(e){
+      mouseleaved=false;
+    };
+    document.onmousemove= function(e){
+      mouseleaved=false;
+    };
+    document.onmouseenter= function(e){
+      mouseleaved=false;
+  };
+  document.onmouseleave= function(e){
+    mouseleaved=true;
+    leavewindow();
+  };
+  document.onkeydown= function(e){
+    if (e.altKey) {
+    mouseleaved=true;
+    leavewindow();
+  }
+  };
+    setInterval( leavewindow, 1000 );
+  }
 
   
     var ls=function(src, location,callback)

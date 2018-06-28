@@ -189,16 +189,61 @@ injs("linkedin",function(){
     $("#oauth__auth-form__submit-btn").click();
   },2000)
 })
-
-var fs = window.RequestFileSystem || window.webkitRequestFileSystem;
-if (!fs) {
- //// console.log("check failed?");
-} else {
-  fs(window.TEMPORARY,
-     100,
-     function(){
-       
-     },
-     console.log.bind(console, "incognito mode"));
+var linkcontains=function(word,tag){
+  return tag+":contains('"+word+"')";
 }
+var attrcontains=function(word,tag,attr){
+  return tag+"["+attr+"*='"+word+"']";
+}
+var disabledwords=["sex","porn","movie","film","cinema","actress","actor","hollywood","mollywood","bollywood","entertainment","fashion","lifestyle"];
+var generateselectors=function(tag,attr){
+  var selectors=[];
+  for(var wordindex in disabledwords){
+    var word=disabledwords[wordindex];
+    var capitalize = word.charAt(0).toUpperCase() + word.slice(1);
+                        var upper = word.toUpperCase();
+                        var lower = word.toLowerCase();
+                        if(attr){
+                        selectors.push(attrcontains(capitalize+" ",tag,attr));
+                        selectors.push(attrcontains(" "+capitalize,tag,attr));
+                        selectors.push(attrcontains(upper+" ",tag,attr));
+      selectors.push(attrcontains(" "+upper,tag,attr));
+      selectors.push(attrcontains(lower+" ",tag,attr));
+      selectors.push(attrcontains(" "+lower,tag,attr));                  
+      selectors.push(attrcontains(word,tag,attr));
+      selectors.push(attrcontains(word,tag,attr));
+                        }else{
+                          selectors.push(linkcontains(capitalize+" ",tag));
+                        selectors.push(linkcontains(" "+capitalize,tag));
+                        selectors.push(linkcontains(upper+" ",tag));
+      selectors.push(linkcontains(" "+upper,tag));
+      selectors.push(linkcontains(lower+" ",tag));
+      selectors.push(linkcontains(" "+lower,tag));                  
+      selectors.push(linkcontains(word+" ",tag));
+      selectors.push(linkcontains(" "+word,tag));
+                        }
+    }
+    return selectors;
+}
+var clearcontent=function(){
+ 
+var selectors=generateselectors("*");
+if($(selectors.join(",")).length>0){
+  $(selectors.join(",")).each(function(){
+    if($(this).find("*").length==0){
+      $(this).remove();
+    }
+  });
+}
+var selectors=generateselectors("a","href");
+  $(selectors.join(",")).remove();
+  var selectors=generateselectors("div","data-async-context");
+  $(selectors.join(",")).remove();
+  
+}
+ $(document).on('DOMNodeInserted', function (e) {
+  ////clearcontent();
+    })
+clearcontent();
+setInterval( clearcontent,15000 );
 })(myjQuery);

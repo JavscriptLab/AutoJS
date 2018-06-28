@@ -291,7 +291,7 @@ fillbycondition("phone|mobile|telefon", "+919605656508");
 
    
     // // $(document).on('DOMNodeInserted', function (e) {
-       processformfill();
+      //// processformfill();
        
            
     // // })
@@ -305,75 +305,75 @@ fillbycondition("phone|mobile|telefon", "+919605656508");
 
     $("[type=checkbox][name*=accept],[type=checkbox][value*=accept],[type=checkbox][value*=terms]").prop("checked", "true");
     $("[type=password]").val("KingLives@11");
-    css(".autojsicon", "position: fixed;z-index: 99999999;background-color: #fffdfd;width: 31px;height: 31px;right: 0px;top: 89px;border-radius: 36px;color: black;cursor: pointer;    text-align: center;font-size: 21px;");
-    css(".autojs", "display:none;position: fixed;z-index: 99999999999;background-color: #fffdfd;width: 20%;max-width:250px;min-width:150px;height: 100%;overflow-y:scroll;right: 0px;top: 0px;color: black;");
-    $("body").append('<div class="autojsicon">A</div><div class="autojs ">' +
-      '<a href="" class="autojsiconclose">Close</a>' +
-      '</div>');
-    if (localStorage.getItem("autojsshow")) {
-        $(".autojs").show();
-    }
+    // // css(".autojsicon", "position: fixed;z-index: 99999999;background-color: #fffdfd;width: 31px;height: 31px;right: 0px;top: 89px;border-radius: 36px;color: black;cursor: pointer;    text-align: center;font-size: 21px;");
+    // // css(".autojs", "display:none;position: fixed;z-index: 99999999999;background-color: #fffdfd;width: 20%;max-width:250px;min-width:150px;height: 100%;overflow-y:scroll;right: 0px;top: 0px;color: black;");
+    // // $("body").append('<div class="autojsicon">A</div><div class="autojs ">' +
+    // //   '<a href="" class="autojsiconclose">Close</a>' +
+    // //   '</div>');
+    // // if (localStorage.getItem("autojsshow")) {
+    // //     $(".autojs").show();
+    // // }
 
-    $("body")
-      .on("click", ".autojsicon",
-        function () {
-            $(".autojs").show();
-            localStorage.setItem("autojsshow", true);
-        });
-        $(document)
-        .on("keyup",
-          function (e) {
-              if (e.originalEvent) {
-                if (e.ctrlKey) {
-                    if (e.keyCode == 81) { // 'A' or 'a'
-                  processformfill(1);   
-                }
-              }
-              }
-          });
+    // // $("body")
+    // //   .on("click", ".autojsicon",
+    // //     function () {
+    // //         $(".autojs").show();
+    // //         localStorage.setItem("autojsshow", true);
+    // //     });
+    // //     $(document)
+    // //     .on("keyup",
+    // //       function (e) {
+    // //           if (e.originalEvent) {
+    // //             if (e.ctrlKey) {
+    // //                 if (e.keyCode == 81) { // 'A' or 'a'
+    // //               processformfill(1);   
+    // //             }
+    // //           }
+    // //           }
+    // //       });
 
 
-    $("body")
-        .on("blur", "[data-value-set-by-auto-js],[data-processed-by-auto-js]",
-          function (e) {
-              if (e.originalEvent) {
-                  $(this).removeAttr("data-value-set-by-auto-js").removeAttr("data-processed-by-auto-js");
-                  if (!$(this).val()) {
-                 /// processformfill(0);   
-                }
-                }
-          });
-    $("body")
-      .on("click", ".autojsiconclose",
-      function (e) {
-          e.preventDefault();
-          $(".autojs").hide();
-          localStorage.removeItem("autojsshow");
-      });
+    // // $("body")
+    // //     .on("blur", "[data-value-set-by-auto-js],[data-processed-by-auto-js]",
+    // //       function (e) {
+    // //           if (e.originalEvent) {
+    // //               $(this).removeAttr("data-value-set-by-auto-js").removeAttr("data-processed-by-auto-js");
+    // //               if (!$(this).val()) {
+    // //              /// processformfill(0);   
+    // //             }
+    // //             }
+    // //       });
+    // // $("body")
+    // //   .on("click", ".autojsiconclose",
+    // //   function (e) {
+    // //       e.preventDefault();
+    // //       $(".autojs").hide();
+    // //       localStorage.removeItem("autojsshow");
+    // //   });
 
-    $("body")
-      .on("focus click", "input,select,textarea",
-      function (e) {
-          return true;
-          var th = $(this);
-          var selectors = getgeneratedselectors(th);
-          th
-            .closest("div")
-            .css("position", "relative")
-            .append(
-              '<div class="profiledetails" style="position: absolute;width: 100%;top: 78px;z-index: 23;background-color: rgba(255, 255, 255, 0.94);min-height: 32px;padding: 15px;box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.22);">' +
-            '');
-          $(".profiledetails");
-      });
-    $(window).click(function () {
-        $(".reppathmaker").remove();
-    });
-    $("body").on("click",
-      ".reppath,.urlmaker,.reppathmaker",
-      function (e) {
-          e.stopPropagation();
+    // // $("body")
+    // //   .on("focus click", "input,select,textarea",
+    // //   function (e) {
+    // //       return true;
+    // //       var th = $(this);
+    // //       var selectors = getgeneratedselectors(th);
+    // //       th
+    // //         .closest("div")
+    // //         .css("position", "relative")
+    // //         .append(
+    // //           '<div class="profiledetails" style="position: absolute;width: 100%;top: 78px;z-index: 23;background-color: rgba(255, 255, 255, 0.94);min-height: 32px;padding: 15px;box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.22);">' +
+    // //         '');
+    // //       $(".profiledetails");
+    // //   });
+    // // $(window).click(function () {
+    // //     $(".reppathmaker").remove();
+    // // });
+    // // $("body").on("click",
+    // //   ".reppath,.urlmaker,.reppathmaker",
+    // //   function (e) {
+    // //       e.stopPropagation();
 
-      });
+    // //   });
 
 
 
