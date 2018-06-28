@@ -195,7 +195,14 @@ var linkcontains=function(word,tag){
 var attrcontains=function(word,tag,attr){
   return tag+"["+attr+"*='"+word+"']";
 }
-var disabledwords=["sex","porn","movie","film","cinema","actress","actor","hollywood","mollywood","bollywood","entertainment","fashion","lifestyle"];
+var disabledwords=["sex","porn","movie","film","cinema","actress","actor","hollywood","mollywood","bollywood","entertainment","fashion","lifestyle","models","taboola","celebrity","adult","romance","kiss","romantic","suck","fuck","xxx"];
+$.fn.exceptchild = function () {
+  if (this.length !== 0) {
+      var html = $(this)[0].outerHTML;
+      return $(html).find("*").remove().end().text();
+  }
+  return "";
+};
 var generateselectors=function(tag,attr){
   var selectors=[];
   for(var wordindex in disabledwords){
@@ -204,46 +211,69 @@ var generateselectors=function(tag,attr){
                         var upper = word.toUpperCase();
                         var lower = word.toLowerCase();
                         if(attr){
-                        selectors.push(attrcontains(capitalize+" ",tag,attr));
-                        selectors.push(attrcontains(" "+capitalize,tag,attr));
-                        selectors.push(attrcontains(upper+" ",tag,attr));
-      selectors.push(attrcontains(" "+upper,tag,attr));
-      selectors.push(attrcontains(lower+" ",tag,attr));
-      selectors.push(attrcontains(" "+lower,tag,attr));                  
-      selectors.push(attrcontains(word,tag,attr));
+                        selectors.push(attrcontains(capitalize,tag,attr));
+                        selectors.push(attrcontains(upper,tag,attr));
+      selectors.push(attrcontains(lower,tag,attr));               
       selectors.push(attrcontains(word,tag,attr));
                         }else{
-                          selectors.push(linkcontains(capitalize+" ",tag));
-                        selectors.push(linkcontains(" "+capitalize,tag));
-                        selectors.push(linkcontains(upper+" ",tag));
-      selectors.push(linkcontains(" "+upper,tag));
-      selectors.push(linkcontains(lower+" ",tag));
-      selectors.push(linkcontains(" "+lower,tag));                  
-      selectors.push(linkcontains(word+" ",tag));
-      selectors.push(linkcontains(" "+word,tag));
+                          selectors.push(linkcontains(capitalize,tag));
+                        selectors.push(linkcontains(upper,tag));
+      selectors.push(linkcontains(lower,tag));      
+      selectors.push(linkcontains(word,tag));
                         }
     }
     return selectors;
 }
+var timeinterval=2000;
+var removecontent=true;
+function clearbyattributeselectors(tagname,attribute){
+
+  var selectors=generateselectors(tagname,attribute);
+  var removefilter=$(selectors.join(",")).not("[data-"+tagname.replace("*","star")+attribute+"-processedbyautojstoremoveinapropriatecontent]");
+  removefilter.attr("data-"+tagname.replace("*","star")+attribute+"-processedbyautojstoremoveinapropriatecontent",true);
+  if(removecontent){
+    removefilter.remove();
+    }else{
+      removefilter.removeAttr(attribute);
+      removefilter.html("opacity","0.01");
+    }
+}
 var clearcontent=function(){
- 
+
 var selectors=generateselectors("*");
-if($(selectors.join(",")).length>0){
-  $(selectors.join(",")).each(function(){
-    if($(this).find("*").length==0){
+var removefilter=$(selectors.join(",")).not("html,body,link,meta,title,script,head,[data-content-processedbyautojstoremoveinapropriatecontent]");
+if(removefilter.length>0){
+  timeinterval=2000;
+  removefilter.each(function(){
+    $(this).attr("data-content-processedbyautojstoremoveinapropriatecontent",true);
+    
+    if($(this).find("*").length==0||($(this).exceptchild()&&new RegExp(disabledwords.join("|")).test($(this).exceptchild()))){
+      if(removecontent){
       $(this).remove();
+      }else{
+        $(this).css("opacity","0.05");
+      }
+
     }
   });
+}else{
+  timeinterval+=2000;
 }
-var selectors=generateselectors("a","href");
-  $(selectors.join(",")).remove();
-  var selectors=generateselectors("div","data-async-context");
-  $(selectors.join(",")).remove();
-  
+
+clearbyattributeselectors("a","href");
+clearbyattributeselectors("div","data-async-context");
+clearbyattributeselectors("img","src");
+clearbyattributeselectors("*","style");
+clearbyattributeselectors("*","title");
+
+if(timeinterval>15000){
+  timeinterval=15000;
+}
+  setTimeout( clearcontent,timeinterval );  
 }
  $(document).on('DOMNodeInserted', function (e) {
   ////clearcontent();
     })
 clearcontent();
-setInterval( clearcontent,15000 );
+////setTimeout( clearcontent,timeinterval );
 })(myjQuery);
