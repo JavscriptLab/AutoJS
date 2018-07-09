@@ -166,6 +166,28 @@
           .append("<style class='autostyles' type='text/css'>" + selector + "{ " + stylevalue + "}</style>");
     }
     var dominserti = 0;
+    var proposal = `I'm a senior software engineer in DotNet and Php. I have extensive experience in building high-quality websites.
+
+My experiences range from building responsive mobile sites that work well, cross-browser to building scalable sites for different industries like financial, e-commerce, CMS, HR management, event management etc. I like working on projects with a team that cares about creating beautiful, unique and usable interfaces. I specialize in and am passionate about creating intelligent designs using simple, short, smart and reusable scripts.
+
+It's important for me to build long-term relationships with clients, so I'm primarily looking for long-term projects. When it comes to clients, their ideas are of utmost importance, and I love to apply my imagination to bring their vision to life.
+
+I'm flexible with my working hours and am happy to work closely with any existing freelancers you work with.
+
+I can promise me that whatever your idea, I’ll be able to deliver a satisfying result on time and on budget. I also welcome any opportunity to showcase my coding abilities.
+
+I look forward to hearing from you!
+`;
+    var motivationletter = `Dear HR,
+        I'm a senior software engineer in DotNet and Php. I have extensive experience in building high-quality websites.
+My experiences range from building responsive mobile sites that work well, cross-browser to building scalable sites for different industries like financial, e-commerce, CMS, HR management, event management etc.I like working on projects with a team that cares about creating beautiful, unique and usable interfaces.I specialize in and am passionate about creating intelligent designs using simple, short, smart and reusable scripts.
+        My employers have commended me for my high level of interpersonal skills and naturally engaging personality.My motivations include learning new things and the challenge of meeting key targets.My current and previous managers can learn more about my ability to meet the needs of this job.
+                    I understand that you are looking for a role for this role. I do, however, believe that my motivation, commitment, and pre-existing skills will allow you to fit into your work environment and immediately start supporting the needs of your organization,
+                    I would like to discuss my application at an interview. I have attached a copy of my resume for your consideration. I can be contacted at any time.
+                    Thanking you for your time,
+
+                    Justin Jose
+                    Mobile. + 919605656508`;
     function processformfill(timeout) {
         timeout=!timeout?10000:timeout;
         dominserti++;
@@ -176,33 +198,7 @@
                 if ($("input,select,textarea").filter(":visible").not("[data-processed-by-auto-js]").length > 0) {
                     $("input,select,textarea").filter(":visible").attr("data-processed-by-auto-js", true);
 
-                    var motivationletter=`Dear HR, 
-                    As a young and motivated individual, I am very interested in applying for the position of Software Engineer in your Company. 
-                    In November 2013, I completed my studies in Master of Computer Applications (MCA). This has been given the scope of practical capabilities that will meet the needs of this role. 
-                    While completing my MCA, I worked full time as a Trainee for Hightrax. My responsibilities in this role include providing support for clients and complete their projects in DotNet. After that, I worked full-time as a Junior Software Engineer for Caxita and now a Senior Software Engineer. My responsibilities in this role include developing their web application projects. This position has given me key employability skills while also allowing me to work in a professional and fast-paced work environment. 
-                    With regard to my ability to meet the specific requirements of this job: 
-                    Fast Learning Fast Learning and implementation. 
-                    Programming Logic: Not becoming stuck in any situation. Have good logic and creative ideas. 
-                    Support Others: Support everyone to solve issues and improve knowledge.
-                    My employers have commended me for my high level of interpersonal skills and naturally engaging personality. My motivations include learning new things and the challenge of meeting key targets. My current and previous managers can learn more about my ability to meet the needs of this job. 
-                    I understand that you are looking for a role for this role. I do, however, believe that my motivation, commitment, and pre-existing skills will allow you to fit into your work environment and immediately start supporting the needs of your organization, 
-                    I would like to discuss my application at an interview. I have attached a copy of my resume for your consideration. I can be contacted at any time. 
-                    Thanking you for your time, 
-                    
-                    Justin Jose 
-                    Mobile. + 919605656508`;
-var proposal=`I'm a senior software engineer in Php and DotNet. I have extensive experience in building high-quality websites.
-
-My experiences range from building responsive mobile sites that work well, cross-browser to building scalable sites for different industries like financial, e-commerce, CMS, HR management, event management etc. I like working on projects with a team that cares about creating beautiful, unique and usable interfaces. I specialize in and am passionate about creating intelligent designs using simple, short, smart and reusable scripts. 
-
-It's important for me to build long-term relationships with clients, so I'm primarily looking for long-term projects. When it comes to clients, their ideas are of utmost importance, and I love to apply my imagination to bring their vision to life. 
-
-I'm flexible with my working hours and am happy to work closely with any existing freelancers you work with. 
-
-I can promise me that whatever your idea, I’ll be able to deliver a satisfying result on time and on budget. I also welcome any opportunity to showcase my coding abilities.  
-
-I look forward to hearing from you! 
-`;
+                
 
 
                     fillbycondition("Id&Card", "NMZ0092247");
@@ -301,7 +297,7 @@ fillbycondition("phone|mobile|telefon", "+919605656508");
     $("#resumator-city-value").val("Kottayam");
     $("#resumator-state-value").val("Kerala");
     $("#resumator-postal-value").val("685521");
-
+    $("#CoverLetter").val();
 
     $("[type=checkbox][name*=accept],[type=checkbox][value*=accept],[type=checkbox][value*=terms]").prop("checked", "true");
     $("[type=password]").val("KingLives@11");
