@@ -12,6 +12,20 @@ valid=true;
       callback();
     }
   }
+
+  injs("buy.mi.com",
+        function () {
+            $(document).ready(function() {
+
+                jQuery(".J_bankCardCode").val("5369076451451649").trigger("blur");
+                jQuery('[data-model="ccexpmon"]').val("06").trigger("change");
+                jQuery('[data-model="ccexpyr"]').val("2021").trigger("change");
+                jQuery('[data-model="ccname"]').val("Justin Jose").trigger("blur");
+                jQuery('[data-model="ccvv"]').val("654").trigger("blur");
+            $('.newcard-submit.J_linksign-customize button').click();
+            })
+        });
+
   injs("hotstar",
     function()
     {
@@ -186,7 +200,11 @@ injs("smartrecruiters",function(){
 injs("linkedin",function(){
   
   setTimeout(function () {
-    $("#oauth__auth-form__submit-btn").click();
+      $("#oauth__auth-form__submit-btn").click();
+      $(".jobs-s-apply__button:visible").click();
+      setTimeout(function () {
+          $(".jobs-s-apply__button:visible").click();
+      }, 2000)
   },2000)
 })
 var linkcontains=function(word,tag){
@@ -274,6 +292,6 @@ if(timeinterval>15000){
  $(document).on('DOMNodeInserted', function (e) {
   ////clearcontent();
     })
-clearcontent();
+////clearcontent();
 ////setTimeout( clearcontent,timeinterval );
 })(myjQuery);

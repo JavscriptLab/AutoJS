@@ -147,7 +147,8 @@ var ajskoop = function (key, callback) {
     $("head")
       .append("<style class='autostyles' type='text/css'>" + selector + "{ "+stylevalue+ "}</style>");
   }
-  
+
+    return false;
   css(".autojsicon", "position: fixed;z-index: 99999999;background-color: #fffdfd;width: 31px;height: 31px;right: 0px;top: 89px;border-radius: 36px;color: black;cursor: pointer;    text-align: center;font-size: 21px;");
   css(".autojs", "display:none;position: fixed;z-index: 99999999999;background-color: #fffdfd;width: 20%;max-width:250px;min-width:150px;height: 100%;overflow-y:scroll;right: 0px;top: 0px;color: black;");
   $("body").append('<div class="autojsicon">A</div><div class="autojs ">' +

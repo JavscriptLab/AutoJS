@@ -45,7 +45,7 @@
                                 th.css("background-color", "rgba(113, 241, 210, 0.33)");
                                 th.css("border", "1px solid green");
                             }, timeout);
-                            timeout += 10000;
+                            timeout += 120000;
                         }
                     }
 
@@ -73,7 +73,7 @@
                     window.location.reload();
                 }
            });
-        }, 20000);
+            }, 120000);
             return true;
 
         }else
@@ -93,9 +93,9 @@
                 window.location.href= "https://mail.google.com/mail/?view=cm&tf=0"+$(".js-apply-container .js-email-apply").attr("data-email").replace("mailto:","&to=").replace("?subject=","&su=").replace("&body=","&body="+ motivationletter)+"&bcc=&cc=&fs=1";
             }
            
-            }, 2000);
+            }, 120000);
            });
-        }, 2000);
+            }, 120000);
         } else {
             window.close();
         }  
@@ -143,7 +143,7 @@ if($(".has-error").length == 0&&$("iframe[title='recaptcha challenge']").length=
                   result.textContent = "it seems like you are in incognito mode";
                 });
               }
-            }, 50000);
+            }, 120000);
         }
     } else {
         var clicksubmit2= setInterval(function () {
@@ -169,7 +169,7 @@ if($(".has-error").length == 0&&$("iframe[title='recaptcha challenge']").length=
                     });
             }
             }
-        }, 50000);
+        }, 120000);
     }
     })
 if(window.top==window.parent){
