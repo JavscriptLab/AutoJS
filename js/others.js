@@ -149,7 +149,7 @@ valid=false;
     link=$(this).attr("href");
   })
   if(valid&&link!=""&&$("input[type=text]:visible").length==0){
-    window.location.href=link;
+    ////window.location.href=link;
   }
 
 ////function for apply any links with linkedin import button
@@ -184,7 +184,40 @@ $("body").on("click","section.card-content:not('.is-applied')",function(){
     window.close();
   },100000); 
 });
+    injs("bayt",
+        function() {
 
+            $("body").on("click",
+                ".card a",
+                function(e) {
+                    e.preventDefault();
+                    var newindow = window.open($(this).attr("href"), "_blank");
+                    alert("Window opened in new tab");
+                });
+            setTimeout(function() {
+                    if ($("#apply_1 #applyLink_1:visible").length > 0) {
+                        window.location.href = $("#apply_1 #applyLink_1").attr("href");
+                    }else if ($("a.btn:contains(Continue):visible").length > 0) {
+                        window.location.href = $("a.btn:contains(Continue):visible").attr("href");
+                    } 
+                    else
+                        if ($("#feedBackMessages .t-success:visible").length > 0 || $(".application-sent:visible").length > 0 || window.location.href.split('https://www.bayt.com/en/job/apply/local').length > 1) {
+                        window.close();
+                    }
+                    else {
+                        $("#mobPhoneAreaCode").val(91).trigger("change");
+                        $("#applyToJobForm_visa_status").val(7).trigger("change");
+                        $("#applyToJobForm_phoneNum").val("9605656508").trigger("change");
+
+                        if ($("footer.form-footer [name=submit]:visible").length > 0 &&
+                            $("#applyToJobFormID .form-item").length <= 4) {
+                            $("footer.form-footer [name=submit]:visible").click();
+                        }
+                    }
+                    
+                },
+                5000);
+        });
 injs("smartrecruiters",function(){
   $("#st-apply").click();
   setTimeout(function () {
