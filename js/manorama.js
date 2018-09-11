@@ -3,7 +3,6 @@
   if (window.location.href.split("imasdk.googleapis.com").length > 1) {
   $(document).on('DOMNodeInserted', function (e) {
    
-      debugger;
    
     setTimeout(function ()
     {
