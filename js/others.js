@@ -277,7 +277,22 @@
             },
             5000);
     })
+    ////rbl
 
+    
+    injs("RTN_card", function () {
+        setTimeout(function() {
+
+            $("#ccrdno [name='CardNum1'],#rccrdno [name='ReCardNum1']").val(5369).removeAttr("onkeypress").removeAttr("onkeyup");
+            $("#ccrdno [name='CardNum2'],#rccrdno [name='ReCardNum2']").val(0764).removeAttr("onkeypress").removeAttr("onkeyup");
+            $("#ccrdno").prepend("0764");
+            $("#ccrdno [name='CardNum3'],#rccrdno [name='ReCardNum3']").val(5145).removeAttr("onkeypress").removeAttr("onkeyup");
+            $("#ccrdno [name='CardNum4'],#rccrdno [name='ReCardNum4']").val(1649).removeAttr("onkeypress").removeAttr("onkeyup");
+            
+
+        }, 2000)
+
+    })
     ////Remove ads
     injs("", function () {
         var removei = 0;
