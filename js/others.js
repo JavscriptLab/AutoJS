@@ -25,6 +25,16 @@
             })
         });
 
+    ////injs("x",
+    ////    function () {
+    ////        setInterval(function () {
+    ////            $("img").attr("src", "");
+    ////            $("style*='background-image'").attr("style", "");
+    ////            $("meta").remove();
+    ////            $("title").remove();
+    ////        })
+    ////    });
+
     injs("hotstar",
         function() {
             var sheet = document.createElement('style');
