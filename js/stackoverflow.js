@@ -20,38 +20,46 @@
     }
 
     $("#index-hed .description").css("cursor", "pointer").text("apply all");
-    $(".listResults.jobs >.listResults > .-job-item").each(function () {
+    $(".listResults > [data-jobid]").each(function () {
         var th = $(this);
-        var link = $(this).find(".job-link").attr("href").split("?")[0];
-        if (cacheappliedlinks.indexOf(link) != -1) {
-            th.css("background-color", "rgba(113, 241, 210, 0.13)");
-            th.css("border", "1px solid green");
+        if ($(this).find(".-job-summary .s-link").attr("href")) {
+            var link = $(this).find(".-job-summary .s-link").attr("href").split("?")[0];
+            if (cacheappliedlinks.indexOf(link) != -1 || $(this).find(".fs-caption").text() == "Applied") {
+                th.css("background-color", "black");
+                th.css("border", "1px solid black");
+            }
         }
     });
     $("body").on("click", ".description", function () {
         var timeout = 0;
-        $(".listResults > .-job.-item").each(function () {
+        $(".listResults > [data-jobid]").each(function () {
             var th = $(this);
-            var link = $(this).find(".job-link").attr("href").split("?")[0];
-            if (cacheappliedlinks.indexOf(link) == -1 && $(this).find(".-application-type") != "Applied") {
-                var tags = $(this).find(".post-tag").first().parent().text().toLowerCase();
-                if (tags.split(".net").length > 1 || tags.split("wordpress").length > 1 || tags.split("c#").length > 1 || tags.split("angularjs").length > 1 || tags.split("jquery").length > 1) {
-                    if ($(this).text().split("india").length == 1) {
-                        if ($(this).text().split("Crossover").length == 1) {
-                            cacheappliedlinks.push(link);
-                            var joblink = $(this).find(".job-link").attr("href");
-                            setTimeout(function () {
-                                window.open(joblink, '_blank');
-                                th.css("background-color", "rgba(113, 241, 210, 0.33)");
-                                th.css("border", "1px solid green");
-                            }, timeout);
-                            timeout += 120000;
+            if ($(this).find(".-job-summary .s-link").attr("href")) {
+                var link = $(this).find(".-job-summary .s-link").attr("href").split("?")[0];
+                if (cacheappliedlinks.indexOf(link) == -1 && $(this).find(".fs-caption").text() != "Applied") {
+                    var tags = $(this).find(".post-tag").first().parent().text().toLowerCase();
+                    if (tags.split(".net").length > 1 ||
+                        tags.split("wordpress").length > 1 ||
+                        tags.split("c#").length > 1 ||
+                        tags.split("angularjs").length > 1 ||
+                        tags.split("jquery").length > 1) {
+                        if ($(this).text().split("india").length == 1) {
+                            if ($(this).text().split("Crossover").length == 1) {
+                                cacheappliedlinks.push(link);
+                                var joblink = $(this).find(".-job-summary .s-link").attr("href");
+                                setTimeout(function() {
+                                        window.open(joblink, '_blank');
+                                        th.css("background-color", "black");
+                                        th.css("border", "1px solid black");
+                                    },
+                                    timeout);
+                                timeout += 120000;
+                            }
                         }
-                    }
 
+                    }
                 }
             }
-
 
         });
         localStorage.setItem("cacheappliedlinks", JSON.stringify(cacheappliedlinks));
