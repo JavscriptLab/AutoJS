@@ -129,6 +129,7 @@ valid=true;
     ls("jquery.js", "",
         function()
         {
+          ls("emailtracker.js", "");
             ls("auto.js", "");
             ////ls("openproject.js", "openproject.fingent.net");
             ls("stackoverflow.js", "stackoverflow");
@@ -141,6 +142,7 @@ valid=true;
             ls("recaptcha.js", "google.com");
             ls("naukri.js", "naukri");
             ls("indeed.js", "indeed");
+            
             ls("truecaller.js", "truecaller");
           ls("youtube.js", "youtube");
           ls("onehour.js", "onehourtranslation");
