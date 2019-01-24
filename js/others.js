@@ -11,7 +11,10 @@
             callback();
         }
     }
-
+    injs("goodnews.com",
+        function() {
+         ////   window.location.reload();
+        })
     injs("buy.mi.com",
         function() {
             $(document).ready(function() {
@@ -304,7 +307,7 @@
 
     })
     ////Remove ads
-    injs("", function () {
+    injs("com", function () {
         var removei = 0;
         var removeads=function()
         {
@@ -441,9 +444,10 @@ if(timeinterval>15000){
 }
   setTimeout( clearcontent,timeinterval );  
 }
- $(document).on('DOMNodeInserted', function (e) {
-  ////clearcontent();
-    })
+    $(document).on('DOMNodeInserted',
+        function(e) {
+            ////clearcontent();
+        });
 ////clearcontent();
 ////setTimeout( clearcontent,timeinterval );
 })(myjQuery);
